@@ -18,3 +18,8 @@ shape = SubResource("RectangleShape2D_l1e1h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
 shape = SubResource("RectangleShape2D_t6or0")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="Idle" type="Timer" parent="."]
+wait_time = 10.0
