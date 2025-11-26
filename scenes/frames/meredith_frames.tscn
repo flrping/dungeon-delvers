@@ -1,0 +1,86 @@
+[gd_scene load_steps=11 format=3 uid="uid://7cg7trfrr6n3"]
+
+[ext_resource type="Texture2D" uid="uid://crdv2jo4u6fp2" path="res://assets/sprites/meredithwalk.png" id="1_6dwxd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nej0"]
+atlas = ExtResource("1_6dwxd")
+region = Rect2(0, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v30b7"]
+atlas = ExtResource("1_6dwxd")
+region = Rect2(17, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37gdd"]
+atlas = ExtResource("1_6dwxd")
+region = Rect2(102, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so5vt"]
+atlas = ExtResource("1_6dwxd")
+region = Rect2(119, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iml7m"]
+atlas = ExtResource("1_6dwxd")
+region = Rect2(34, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oey7y"]
+atlas = ExtResource("1_6dwxd")
+region = Rect2(51, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e435e"]
+atlas = ExtResource("1_6dwxd")
+region = Rect2(68, 0, 17, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bo2yc"]
+atlas = ExtResource("1_6dwxd")
+region = Rect2(85, 0, 17, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wxllt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nej0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v30b7")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37gdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so5vt")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iml7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oey7y")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e435e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bo2yc")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 4.0
+}]
+
+[node name="MeredithFrames" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_wxllt")
+animation = &"walk_left"

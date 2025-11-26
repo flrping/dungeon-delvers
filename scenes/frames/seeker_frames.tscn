@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpi5syyxmnsai"]
+
+[ext_resource type="Texture2D" uid="uid://bi4qjydw4cimx" path="res://assets/sprites/seeker.png" id="1_j854c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vi71"]
+atlas = ExtResource("1_j854c")
+region = Rect2(0, 0, 18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjvsu"]
+atlas = ExtResource("1_j854c")
+region = Rect2(18, 0, 18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg03j"]
+atlas = ExtResource("1_j854c")
+region = Rect2(72, 0, 18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnc03"]
+atlas = ExtResource("1_j854c")
+region = Rect2(90, 0, 18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_me6yw"]
+atlas = ExtResource("1_j854c")
+region = Rect2(36, 0, 18, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv7i8"]
+atlas = ExtResource("1_j854c")
+region = Rect2(54, 0, 18, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wxllt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vi71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjvsu")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg03j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnc03")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_me6yw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xv7i8")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 4.0
+}]
+
+[node name="SeekerFrames" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_wxllt")
+animation = &"walk_down"
