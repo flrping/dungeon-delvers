@@ -14,19 +14,22 @@ radius = 83.00603
 
 [node name="SeekerEnemy" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 4
-collision_mask = 7
+collision_mask = 15
 script = ExtResource("1_srybl")
+damage_source = "AllyDamageSource"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_srybl")
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Hitbox" type="Area2D" parent="." groups=["EnemyDamageSource"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_l1e1h")
 debug_color = Color(0.8589048, 0.26886365, 0.6241412, 0.41960785)
 
 [node name="Detection" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
 position = Vector2(0, -1)
@@ -36,3 +39,5 @@ debug_color = Color(0.66399616, 0.5079127, 0.20244181, 0.41960785)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="SeekerFrames" parent="." instance=ExtResource("2_pa7o1")]
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=4 uid="uid://dbeuoe62hodm3"]
 
-[ext_resource type="Script" uid="uid://c4lephab1hoji" path="res://scripts/room.gd" id="1_8soj0"]
+[ext_resource type="Script" uid="uid://c4lephab1hoji" path="res://scripts/spawner/room.gd" id="1_8soj0"]
 [ext_resource type="PackedScene" uid="uid://3ujkr01qy077" path="res://scenes/tilesets/tiles.tscn" id="2_lmx87"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gqmdc"]

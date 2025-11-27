@@ -10,6 +10,15 @@ const ALLY_COLOR: String = "#3d86c785"
 
 var capture_progress := 0.0
 
+func _ready() -> void:
+	_init()
+	if in_control:
+		color.set_color(ALLY_COLOR)
+	else:
+		color.set_color(ENEMY_COLOR)
+	Bus.connect("on_enemy_death", _on_enemy_death)
+	Bus.connect("on_ally_death", _on_ally_death)
+
 func _process(delta: float) -> void:
 	_attempt_spawn(delta)
 
@@ -23,8 +32,12 @@ func _attempt_spawn(delta) -> void:
 
 		var entities_spawned := []
 		for i in range(amount_per_spawn):
-			var copy: Node = entities[randi_range(0, entities.size() - 1)].duplicate()
-
+			var copy: Node 
+			if in_control:
+				copy = ally_entities[randi_range(0, ally_entities.size() - 1)].duplicate()
+			else:
+				copy = enemy_entities[randi_range(0, enemy_entities.size() - 1)].duplicate()
+				
 			var rect: Rect2 = area.shape.get_rect()
 			var spawn_x: float = randf_range(rect.position.x, rect.position.x + rect.size.x)
 			var spawn_y: float = randf_range(rect.position.y, rect.position.y + rect.size.y)
@@ -33,25 +46,44 @@ func _attempt_spawn(delta) -> void:
 			copy.assigned_area = area
 			
 			get_tree().current_scene.add_child(copy)
-			
 			entities_spawned.append({
 				"entity": copy,
 				"spawn_point": rand_point,
 				"belongs_to_room": self
 			})
 			tracked_entites.append(copy)
-			
-		on_spawn.emit(entities_spawned)
+			Bus.emit_signal("on_entity_spawn", copy)
 
-func _on_enemy_kill() -> void:
+func _on_enemy_death(entity: Entity, _source: Variant) -> void:
 	if in_control:
 		return
-
-func _on_ally_kill() -> void:
-	if not in_control:
+		
+	if not tracked_entites.has(entity):
 		return
 		
-func _on_capture(_source) -> void:
+	tracked_entites.erase(entity)
+	capture_progress += 25
+	
+	if capture_progress >= 100.0:
+		for tracked_entity in tracked_entites:
+			tracked_entity.queue_free()
+			in_control = true
+			Bus.emit_signal("on_room_capture", self)
+			_on_room_capture()
+
+func _on_ally_death(_entity: Entity, _source: Variant) -> void:
+	if not in_control:
+		return
+	
+	capture_progress += 25
+	if capture_progress >= 100.0:
+		for tracked_entity in tracked_entites:
+			tracked_entity.queue_free()
+			in_control = false
+			Bus.emit_signal("on_room_capture", self)
+			_on_room_capture()
+
+func _on_room_capture() -> void:
 	if in_control:
 		color.set_color(ALLY_COLOR)
 	else:

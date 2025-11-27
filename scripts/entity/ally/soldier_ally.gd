@@ -1,6 +1,6 @@
 extends Entity
 
-class_name SeekerEnemy
+class_name SoldierAlly
 
 const ATTACK_DISTANCE := 12.0
 
@@ -28,7 +28,8 @@ func _process(delta: float) -> void:
 func _check_for_targets():
 	var found = false
 	for detected in detection.get_overlapping_bodies():
-		if detected.is_in_group("Ally") and can_refresh_target:
+		if detected.is_in_group("Enemy") and can_refresh_target:
+			print("Ally saw enemy")
 			target = detected
 			found = true
 			_set_state("hunt")

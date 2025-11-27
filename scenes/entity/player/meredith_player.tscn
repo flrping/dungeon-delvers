@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=3 uid="uid://2oam16boclrl"]
+
+[ext_resource type="Script" uid="uid://duacd4xo5620r" path="res://scripts/entity/player.gd" id="1_1obkj"]
+[ext_resource type="PackedScene" uid="uid://7cg7trfrr6n3" path="res://scenes/frames/meredith_frames.tscn" id="2_gdab3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1obkj"]
+radius = 6.0
+height = 20.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdab3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1obkj"]
+size = Vector2(25.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0tph"]
+size = Vector2(25, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8cg3"]
+size = Vector2(20, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1f8ad"]
+size = Vector2(20, 25.5)
+
+[node name="MeredithPlayer" type="CharacterBody2D" groups=["Ally", "Player"]]
+script = ExtResource("1_1obkj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1obkj")
+
+[node name="MeredithFrames" parent="." instance=ExtResource("2_gdab3")]
+animation = &"attack_down"
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CapsuleShape2D_gdab3")
+debug_color = Color(0.85882354, 0.27058825, 0.62352943, 0.41960785)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AttackUpHitbox" type="Area2D" parent="." groups=["AllyDamageSource"]]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackUpHitbox"]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_1obkj")
+
+[node name="AttackDownHitbox" type="Area2D" parent="." groups=["AllyDamageSource"]]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDownHitbox"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_t0tph")
+
+[node name="AttackLeftHitbox" type="Area2D" parent="." groups=["AllyDamageSource"]]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackLeftHitbox"]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_l8cg3")
+
+[node name="AttackRightHitbox" type="Area2D" parent="." groups=["AllyDamageSource"]]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRightHitbox"]
+position = Vector2(-20, 0)
+shape = SubResource("RectangleShape2D_1f8ad")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer"]
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 158.0
+offset_bottom = 38.0
+value = 100.0
+rounded = true
+show_percentage = false
+
+[node name="Level Label" type="Label" parent="CanvasLayer"]
+offset_left = 15.0
+offset_top = 45.0
+offset_right = 38.0
+offset_bottom = 68.0
+text = "Lv."
+
+[node name="Level Value Label" type="Label" parent="CanvasLayer"]
+offset_left = 41.0
+offset_top = 45.0
+offset_right = 81.0
+offset_bottom = 68.0
+text = "1"
+
+[node name="KO Label" type="Label" parent="CanvasLayer"]
+offset_left = 427.0
+offset_top = 361.0
+offset_right = 450.0
+offset_bottom = 384.0
+text = "KO"
+
+[node name="KO Value Label" type="Label" parent="CanvasLayer"]
+offset_left = 455.0
+offset_top = 361.0
+offset_right = 478.0
+offset_bottom = 384.0
+text = "0"
+
+[connection signal="on_player_damage" from="." to="." method="_on_on_player_damage"]
