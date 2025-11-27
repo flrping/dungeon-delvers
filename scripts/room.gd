@@ -1,8 +1,12 @@
-extends "res://scripts/spawner.gd"
+extends Spawner
 
 class_name Room
 
-@onready var area = $Area2D/CollisionShape2D
+@onready var area: CollisionShape2D = $Area2D/CollisionShape2D
+@onready var color: ColorRect = $ColorRect
+
+const ENEMY_COLOR: String = "#f1080032"
+const ALLY_COLOR: String = "#3d86c785"
 
 var capture_progress := 0.0
 
@@ -19,14 +23,15 @@ func _attempt_spawn(delta) -> void:
 
 		var entities_spawned := []
 		for i in range(amount_per_spawn):
-			var copy = entities[randi_range(0, entities.size() - 1)].duplicate()
+			var copy: Node = entities[randi_range(0, entities.size() - 1)].duplicate()
 
-			var rect = area.shape.get_rect()
-			var spawn_x = randi_range(rect.position.x, rect.position.x + rect.size.x)
-			var spawn_y = randi_range(rect.position.y, rect.position.y + rect.size.y)
-			var rand_point = global_position + Vector2(spawn_x, spawn_y)
+			var rect: Rect2 = area.shape.get_rect()
+			var spawn_x: float = randf_range(rect.position.x, rect.position.x + rect.size.x)
+			var spawn_y: float = randf_range(rect.position.y, rect.position.y + rect.size.y)
+			var rand_point: Vector2 = global_position + Vector2(spawn_x, spawn_y)
 			copy.position = rand_point
 			copy.assigned_area = area
+			
 			get_tree().current_scene.add_child(copy)
 			
 			entities_spawned.append({
@@ -34,9 +39,20 @@ func _attempt_spawn(delta) -> void:
 				"spawn_point": rand_point,
 				"belongs_to_room": self
 			})
+			tracked_entites.append(copy)
 			
 		on_spawn.emit(entities_spawned)
+
+func _on_enemy_kill() -> void:
+	if in_control:
+		return
 
 func _on_ally_kill() -> void:
 	if not in_control:
 		return
+		
+func _on_capture(_source) -> void:
+	if in_control:
+		color.set_color(ALLY_COLOR)
+	else:
+		color.set_color(ENEMY_COLOR)

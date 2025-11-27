@@ -5,14 +5,13 @@
 [ext_resource type="PackedScene" uid="uid://3ujkr01qy077" path="res://scenes/tilesets/tiles.tscn" id="3_j66t7"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_iqs4d"]
-vertices = PackedVector2Array(480.14844, 333.9297, -251.84375, 329.0625, -243.14844, -230.04688, 488.84375, -233.9375)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-253, -240, -262, 339, 490, 344, 499, -244)])
+vertices = PackedVector2Array(563.1094, -362.03125, 571.8828, 377.9922, 297, 26, 297, -58, 297, -102, 297, -186, -517.0078, -365.96094, 213, -186, -517.97656, 377, 213, 26, 169, 26, 85, 26, 85, -58, 121, -58, 169, -150, 213, -150, 169, -10, 121, -10, 169, -186, 85, -186, 121, -102, 121, -150, 261, -150, 261, -102, 261, -58, 261, -10, 213, -10, 85, -102)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3), PackedInt32Array(0, 4, 5), PackedInt32Array(6, 0, 5, 7), PackedInt32Array(2, 1, 8, 9), PackedInt32Array(10, 9, 8), PackedInt32Array(11, 10, 8), PackedInt32Array(11, 8, 6, 12), PackedInt32Array(13, 14, 7, 15, 16, 17), PackedInt32Array(7, 14, 18), PackedInt32Array(6, 7, 18), PackedInt32Array(6, 18, 19), PackedInt32Array(20, 21, 14), PackedInt32Array(15, 22, 23, 16), PackedInt32Array(23, 4, 3, 24), PackedInt32Array(24, 25, 26), PackedInt32Array(26, 9, 10, 16), PackedInt32Array(6, 19, 27), PackedInt32Array(12, 6, 27), PackedInt32Array(12, 27, 20, 13), PackedInt32Array(13, 20, 14), PackedInt32Array(16, 23, 24, 26)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-527, -376, -528, 387, 582, 388, 573, -372)])
 
 [node name="TestStage" type="Node2D"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_iqs4d")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -29,6 +28,6 @@ tile_map_data = PackedByteArray("AAAAAAAAAAABAAIAAAABAAAAAAABAAIAAAACAAAAAAABAAI
 [node name="Room" parent="." instance=ExtResource("2_rlo0c")]
 position = Vector2(191, -80)
 cooldown = 15.0
-entity_frame_paths = Array[String](["res://scenes/frames/seeker_frames.tscn"])
+entity_paths = Array[String](["res://scenes/entity/enemy/seeker_enemy.tscn"])
 
 [node name="Player" parent="." instance=ExtResource("1_iqs4d")]
