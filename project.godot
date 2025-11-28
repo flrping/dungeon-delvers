@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dungeon Delvers"
-run/main_scene="uid://bffv6ewy7p8j3"
+run/main_scene="uid://7xuaqs40p672"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,9 +21,8 @@ Bus="*res://scripts/Bus.gd"
 
 [display]
 
-window/size/viewport_width=500
-window/size/viewport_height=400
 window/stretch/mode="viewport"
+window/canvas_textures/default_texture_filter=1
 
 [global_group]
 
@@ -81,5 +80,6 @@ Heavy_Attack={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
