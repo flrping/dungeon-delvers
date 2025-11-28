@@ -7,6 +7,7 @@
 size = Vector2(147, 148)
 
 [node name="Room" type="Node2D"]
+scale = Vector2(2, 2)
 script = ExtResource("1_8soj0")
 metadata/_custom_type_script = "uid://c4lephab1hoji"
 

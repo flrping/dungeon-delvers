@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=4 uid="uid://c23kvumfiwth5"]
+
+[ext_resource type="Script" uid="uid://ckf2akog2x1a3" path="res://scripts/spawner/outpost.gd" id="1_f42mt"]
+[ext_resource type="PackedScene" uid="uid://3ujkr01qy077" path="res://scenes/tilesets/tiles.tscn" id="1_n72ad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n72ad"]
+size = Vector2(123.5, 119)
+
+[node name="Outpost" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_f42mt")
+entity_limit = 6
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(30.75, 0)
+shape = SubResource("RectangleShape2D_n72ad")
+
+[node name="Tiles" parent="." instance=ExtResource("1_n72ad")]
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAP//AAAAAAAAAAD/////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAP7/AAABAAMAAAD///7/AAABAAMAAAD+////AAAAAAQAAAD+/wAAAAAAAAQAAAD//wEAAAABAAUAAAAAAAEAAAABAAUAAAABAAAAAAACAAQAAAABAP//AAACAAQAAAABAP7/AAACAAIAAAD+//7/AAACAAIAAAABAAEAAAACAAIAAAD+/wEAAAACAAIAAAA=")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+color = Color(0.94509804, 0.03137255, 0, 0.19607843)
