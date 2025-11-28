@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lmt1ck64n5fv"
-path="res://.godot/imported/meredithfrontattack.png-61c90a354a7bfe2162c10dde3641f95b.ctex"
+uid="uid://s11egdcm0l34"
+path="res://.godot/imported/progressbar_progress_green.png-355e8df2db77714de4754521107e3019.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/meredithfrontattack.png"
-dest_files=["res://.godot/imported/meredithfrontattack.png-61c90a354a7bfe2162c10dde3641f95b.ctex"]
+source_file="res://assets/ui/progressbar_progress_green.png"
+dest_files=["res://.godot/imported/progressbar_progress_green.png-355e8df2db77714de4754521107e3019.ctex"]
 
 [params]
 

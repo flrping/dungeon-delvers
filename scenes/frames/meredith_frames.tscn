@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://7cg7trfrr6n3"]
+[gd_scene load_steps=24 format=3 uid="uid://7cg7trfrr6n3"]
 
 [ext_resource type="Texture2D" uid="uid://cwys8v6eqjdyp" path="res://assets/sprites/meredithsideattack.png" id="1_4nej0"]
 [ext_resource type="Texture2D" uid="uid://crdv2jo4u6fp2" path="res://assets/sprites/meredithwalk.png" id="1_6dwxd"]
-[ext_resource type="Texture2D" uid="uid://cdfhrwlxcii4q" path="res://assets/sprites/meredithfrontattack.png" id="1_v30b7"]
+[ext_resource type="Texture2D" uid="uid://lmt1ck64n5fv" path="res://assets/sprites/meredithfrontattack.png" id="1_v30b7"]
+[ext_resource type="Texture2D" uid="uid://btrna8cjkvu7k" path="res://assets/sprites/meredithbackattack.png" id="3_37gdd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yusbo"]
 atlas = ExtResource("1_v30b7")
@@ -27,6 +28,18 @@ region = Rect2(9, 0, 49, 39)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lkh0o"]
 atlas = ExtResource("1_4nej0")
 region = Rect2(58, 0, 49, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oat36"]
+atlas = ExtResource("3_37gdd")
+region = Rect2(0, 0, 69, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipdul"]
+atlas = ExtResource("3_37gdd")
+region = Rect2(69, 0, 69, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf3iq"]
+atlas = ExtResource("3_37gdd")
+region = Rect2(138, 0, 69, 59)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vkkp"]
 atlas = ExtResource("1_6dwxd")
@@ -96,9 +109,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_oat36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipdul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf3iq")
+}],
+"loop": false,
+"name": &"attack_up",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2vkkp")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -149,4 +176,4 @@ animations = [{
 
 [node name="MeredithFrames" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_wxllt")
-animation = &"walk_left"
+animation = &"walk_down"

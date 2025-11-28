@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lmt1ck64n5fv"
-path="res://.godot/imported/meredithfrontattack.png-61c90a354a7bfe2162c10dde3641f95b.ctex"
+uid="uid://btrna8cjkvu7k"
+path="res://.godot/imported/meredithbackattack.png-38de2981de70d871ef0e1a937b9c8e89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/meredithfrontattack.png"
-dest_files=["res://.godot/imported/meredithfrontattack.png-61c90a354a7bfe2162c10dde3641f95b.ctex"]
+source_file="res://assets/sprites/meredithbackattack.png"
+dest_files=["res://.godot/imported/meredithbackattack.png-38de2981de70d871ef0e1a937b9c8e89.ctex"]
 
 [params]
 
