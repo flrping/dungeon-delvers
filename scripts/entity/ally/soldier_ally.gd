@@ -29,7 +29,6 @@ func _check_for_targets():
 	var found = false
 	for detected in detection.get_overlapping_bodies():
 		if detected.is_in_group("Enemy") and can_refresh_target:
-			print("Ally saw enemy")
 			target = detected
 			found = true
 			_set_state("hunt")

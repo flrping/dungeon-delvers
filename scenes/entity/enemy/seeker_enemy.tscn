@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkeptuml4lhuh"]
+[gd_scene load_steps=7 format=3 uid="uid://bkeptuml4lhuh"]
 
 [ext_resource type="Script" uid="uid://df2cq6u1w0lt8" path="res://scripts/entity/enemy/seeker_enemy.gd" id="1_srybl"]
 [ext_resource type="PackedScene" uid="uid://bpi5syyxmnsai" path="res://scenes/frames/seeker_frames.tscn" id="2_pa7o1"]
@@ -9,10 +9,13 @@ height = 16.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1e1h"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_srybl"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_h53ut"]
 radius = 83.00603
 
 [node name="SeekerEnemy" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 15
 script = ExtResource("1_srybl")
@@ -21,11 +24,21 @@ damage_source = "AllyDamageSource"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_srybl")
 
-[node name="Hitbox" type="Area2D" parent="." groups=["EnemyDamageSource"]]
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 15
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_l1e1h")
 debug_color = Color(0.8589048, 0.26886365, 0.6241412, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="." groups=["EnemyDamageSource"]]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_srybl")
+debug_color = Color(0.26711667, 0.6163221, 0.42382464, 0.41960785)
 
 [node name="Detection" type="Area2D" parent="."]
 collision_layer = 4
@@ -38,6 +51,4 @@ debug_color = Color(0.66399616, 0.5079127, 0.20244181, 0.41960785)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
-[node name="SeekerFrames" parent="." instance=ExtResource("2_pa7o1")]
-
-[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[node name="Frames" parent="." instance=ExtResource("2_pa7o1")]

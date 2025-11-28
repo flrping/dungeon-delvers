@@ -64,4 +64,4 @@ animations = [{
 
 [node name="SeekerFrames" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_wxllt")
-animation = &"walk_down"
+animation = &"walk_up"

@@ -64,11 +64,11 @@ func _apply_i_frames(delta):
 		i_frame_timer -= delta
 		i_frame_timer = max(i_frame_timer, 0.0)
 
-func _check_damage_sources(_delta: Variant, hitbox: Area2D) -> void:
+func _check_damage_sources(_delta: Variant, hurtbox: Area2D) -> void:
 	if i_frame_timer > 0.0:
 		return
 	
-	for source in hitbox.get_overlapping_areas():
+	for source in hurtbox.get_overlapping_areas():
 		if source.is_in_group(damage_source):
 			_take_damage(10.0)
 			i_frame_timer = i_frame / 1000.0
