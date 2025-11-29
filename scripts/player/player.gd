@@ -6,17 +6,36 @@ const SPEED = 300.0
 
 @export var max_health = 100.0
 @export var current_health = 100.0
-@export var i_frame = 300.0 # in ms
+@export var i_frame = 800.0
 @export var i_frame_timer = 0.0
 
 @onready var frames: AnimatedSprite2D = $Frames
 @onready var hurtbox: Area2D  = $Hurtbox
 
-var prev_animation = ""
-var is_attacking = false
+var state: PlayerState
+var states: Dictionary[Variant, Variant] = {}
+var facing_direction: Vector2
 
-func _ready() -> void:
-	pass
+# Sets states.
+func _set_state(state_name) -> void:
+	if not states.has(state_name):
+		push_warning("State '%s' not found" % state_name)
+		return
+
+	if state == states[state_name]:
+		return
+
+	if state:
+		state.exit(states[state_name])
+
+	var prev: PlayerState = state
+	state = states[state_name]
+	state.enter(prev)
+
+func _apply_i_frames(delta):
+	if i_frame_timer > 0.0:
+		i_frame_timer -= delta
+		i_frame_timer = max(i_frame_timer, 0.0)
 	
 func _check_damage_sources(_delta) -> void:
 	if i_frame_timer > 0.0:
@@ -27,38 +46,6 @@ func _check_damage_sources(_delta) -> void:
 			_take_damage(5.0)
 			i_frame_timer = i_frame / 1000.0
 			return
-	
-func _apply_movement(_delta) -> void:
-	velocity = Vector2.ZERO
-	var x_direction := Input.get_axis("Left", "Right")
-	if x_direction > 0:
-		velocity.x += 1
-		if not is_attacking: 
-			frames.play("walk_left")
-			frames.flip_h = true
-	if x_direction < 0:
-		velocity.x -= 1
-		if not is_attacking: 
-			frames.play("walk_left")
-			frames.flip_h = false
-	
-	var y_direction := Input.get_axis("Up", "Down")
-	if y_direction > 0:
-		velocity.y += 1
-		if not is_attacking:
-			frames.play("walk_down")
-	if y_direction < 0:
-		velocity.y -= 1
-		if not is_attacking:
-			frames.play("walk_up")
-		
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * SPEED
-	else:
-		if not is_attacking:
-			frames.play("idle")
-			
-	move_and_slide()
 
 func _take_damage(amount: float) -> void:
 	if amount >= current_health:

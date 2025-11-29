@@ -21,6 +21,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-3110, 1149, 2947, 1201
 [node name="Stage" type="Node2D"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_erodg")
 
 [node name="BG" type="ColorRect" parent="."]
@@ -175,4 +176,4 @@ position = Vector2(1768, -5029)
 position = Vector2(1773, -4754)
 
 [node name="MeredithPlayer" parent="." instance=ExtResource("3_a221a")]
-position = Vector2(-47, 382)
+position = Vector2(158, 276)

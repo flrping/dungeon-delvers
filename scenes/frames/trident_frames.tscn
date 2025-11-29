@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://05xmmhorhl8x"]
+
+[ext_resource type="Texture2D" uid="uid://l5d2dv6gck0b" path="res://assets/sprites/trident.png" id="1_qvtd7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t56pg"]
+atlas = ExtResource("1_qvtd7")
+region = Rect2(0, 0, 28, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swae4"]
+atlas = ExtResource("1_qvtd7")
+region = Rect2(28, 0, 27, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41lpo"]
+atlas = ExtResource("1_qvtd7")
+region = Rect2(56, 0, 28, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7b4gr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t56pg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swae4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41lpo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Frames" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_7b4gr")
+frame = 1
+frame_progress = 0.4729713

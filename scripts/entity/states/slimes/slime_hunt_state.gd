@@ -29,12 +29,17 @@ func physics_update(delta: float) -> void:
 	else:
 		entity.navigation.target_position = target_pos
 		
+	if move_wait_timer < entity.MOVE_WAIT_TIME:
+		return
+		
 	if is_jumping:
 		jump_timer += delta
 		
 		if jump_timer >= entity.JUMP_DURATION:
 			is_jumping = false
 			jump_timer = 0.0
+			move_wait_timer = 0.0
+			entity.velocity = Vector2.ZERO
 	else:
 		var next_point: Vector2 = entity.navigation.get_next_path_position()
 		var dir: Vector2 = next_point - entity.global_position

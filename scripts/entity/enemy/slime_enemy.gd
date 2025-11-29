@@ -3,7 +3,7 @@ extends Entity
 class_name SlimeEnemy
 
 const ATTACK_DISTANCE := 64.0
-const MOVE_WAIT_TIME := 5
+const MOVE_WAIT_TIME := 2
 const JUMP_DURATION: float = 0.5
 
 @export var slime_type: String = "Green"
@@ -17,11 +17,17 @@ var last_known_target_pos: Vector2
 var can_refresh_target: bool = true
 
 func _ready() -> void:
+	speed = 150.0
+	
 	states = {
 		"idle": preload("res://scripts/entity/states/entity_idle_state.gd").new(),
 		"wander": preload("res://scripts/entity/states/entity_wander_state.gd").new(),
-		"hunt": preload("res://scripts/entity/states/slimes/slime_hunt_state.gd").new()
 	}
+	
+	if slime_type == "Yellow":
+		states.set("hunt", preload("res://scripts/entity/states/slimes/yellow_slime_hunt_state.gd").new())
+	else:
+		states.set("hunt", preload("res://scripts/entity/states/slimes/slime_hunt_state.gd").new())
 	
 	for _state in states.values():
 		_state.entity = self
