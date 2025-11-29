@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://2oam16boclrl"]
 
-[ext_resource type="Script" uid="uid://dealg7puqnyqj" path="res://scripts/entity/player/meredith_player.gd" id="1_l8cg3"]
+[ext_resource type="Script" uid="uid://dealg7puqnyqj" path="res://scripts/player/meredith_player.gd" id="1_l8cg3"]
 [ext_resource type="PackedScene" uid="uid://7cg7trfrr6n3" path="res://scenes/frames/meredith_frames.tscn" id="2_gdab3"]
 [ext_resource type="PackedScene" uid="uid://cktryo5wbcouh" path="res://scenes/ui/player_ui.tscn" id="3_l8cg3"]
 

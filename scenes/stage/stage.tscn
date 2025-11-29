@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bqc3ew0cycqya" path="res://scenes/spawner/room_UL.tscn" id="2_0m8sx"]
 [ext_resource type="PackedScene" uid="uid://dbeuoe62hodm3" path="res://scenes/spawner/room.tscn" id="2_3kwj0"]
 [ext_resource type="PackedScene" uid="uid://c23kvumfiwth5" path="res://scenes/spawner/outpost.tscn" id="3_0m8sx"]
-[ext_resource type="PackedScene" uid="uid://2oam16boclrl" path="res://scenes/entity/player/meredith_player.tscn" id="3_a221a"]
+[ext_resource type="PackedScene" uid="uid://2oam16boclrl" path="res://scenes/player/meredith_player.tscn" id="3_a221a"]
 [ext_resource type="PackedScene" uid="uid://cjlq16cmonvsr" path="res://scenes/spawner/room_LR.tscn" id="6_d1yl1"]
 [ext_resource type="PackedScene" uid="uid://83up61jc8qvw" path="res://scenes/spawner/room_UD.tscn" id="6_pf3bu"]
 [ext_resource type="PackedScene" uid="uid://bk76ip7h017ql" path="res://scenes/spawner/room_UDL.tscn" id="7_kb6yy"]
@@ -21,7 +21,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-3110, 1149, 2947, 1201
 [node name="Stage" type="Node2D"]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_erodg")
 
 [node name="BG" type="ColorRect" parent="."]

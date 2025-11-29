@@ -36,10 +36,10 @@ func _attempt_spawn(delta) -> void:
 	timer += delta
 	if timer >= cooldown:
 		timer = 0.0
-
+		
 		if amount_per_spawn + tracked_entites.size() > entity_limit:
 			return
-
+			
 		var entities_spawned := []
 		for i in range(amount_per_spawn):
 			var copy: Node 

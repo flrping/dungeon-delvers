@@ -2,53 +2,45 @@ extends CharacterBody2D
 
 class_name Entity
 
-@export var max_health = 20.0
-@export var current_health = 20.0
-@export var i_frame = 200.0 # in ms
-@export var i_frame_timer = 0.0
-@export var state: String = "idle"
+@export var max_health: float = 20.0
+@export var current_health: float = 20.0
+@export var i_frame: float = 200.0 # in ms
+@export var i_frame_timer: float = 0.0
 @export var min_idle_time: float = 3.0
 @export var max_idle_time: float = 10.0
 @export var search_time: float = 5.0
 @export var damage_source: String = "EnemyDamageSource"
-@export var job = "none"
-@export var speed = 250.0
-
-var jobs = ["none", "captain", "party"]
+@export var job: String = "none"
+@export var speed: float = 250.0
 
 @onready var navigation := $NavigationAgent2D
 
-var assigned_area = null
-var states: Array[Variant] = ["idle", "wander", "hunt", "search"]
+var assigned_area: CollisionShape2D
 var idle_time: float = 0.0
 var idle_timer: float = 0.0
 var search_timer: float = 0.0
+var jobs: Array[Variant] = ["none", "captain", "party"]
 
-# Warns if any entity is not prepared correctly. All mob entities need these.
-func _init() -> void:
-	if state not in states:
-		print("Invalid state. Using idle.")
-		state = "idle"
-		return
-		
-	if job == "captain":
-		max_health = max_health * 2
-		speed = speed * 0.75
+var state: EntityState
+var states: Dictionary[Variant, Variant] = {}
 
 # Sets states.
-func _set_state(next_state) -> void:
-	if state == next_state or next_state not in states:
+func _set_state(state_name) -> void:
+	if not states.has(state_name):
+		push_warning("State '%s' not found" % state_name)
 		return
-	state = next_state
 
-# Shared func so any entity can wander around. It is safe to assume all entities will do this.
-func _wander(_delta) -> void:
-	var next_point: Vector2 = navigation.get_next_path_position()
-	var dir: Vector2 = next_point - global_position
-	velocity = dir.normalized() * speed
-	move_and_slide()
+	if state == states[state_name]:
+		return
 
-# Shared func so any entity can pathfind from their assigned areas.
+	if state:
+		state.exit(states[state_name])
+
+	var prev: EntityState = state
+	state = states[state_name]
+	state.enter(prev)
+
+# Finds a path from their assigned areas.
 func _set_new_random_target() -> void:
 	var rect = assigned_area.shape.get_rect()
 	
@@ -61,28 +53,30 @@ func _set_new_random_target() -> void:
 	world_point = NavigationServer2D.map_get_closest_point(nav_map, world_point)
 	navigation.target_position = world_point
 
+# Applies invincibility frames.
 func _apply_i_frames(delta):
 	if i_frame_timer > 0.0:
 		i_frame_timer -= delta
 		i_frame_timer = max(i_frame_timer, 0.0)
 
+# Checks for damage sources overlapping with the hurtbox.
 func _check_damage_sources(_delta: Variant, hurtbox: Area2D) -> void:
 	if i_frame_timer > 0.0:
 		return
 	
 	for source in hurtbox.get_overlapping_areas():
 		if source.is_in_group(damage_source):
-			var knockback_dir = (global_position - source.global_position).normalized()
+			var knockback_dir: Vector2 = (global_position - source.global_position).normalized()
 			_take_damage(10.0, knockback_dir)
 			i_frame_timer = i_frame / 1000.0
 			return
 
+# Handles taking damage and death.
 func _take_damage(amount: float, knockback_dir: Vector2) -> void:
 	velocity = knockback_dir * 250.0
 	current_health -= amount
 	
 	Bus.emit_signal("on_enemy_damage", self, null)
-
 	if current_health <= 0:
 		Bus.emit_signal("on_enemy_death", self, null)
 		queue_free()

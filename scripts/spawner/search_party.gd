@@ -43,9 +43,9 @@ func _attempt_spawn() -> void:
 		var rand_point: Vector2 = global_position + Vector2(spawn_x, spawn_y)
 		copy.position = rand_point
 		copy.assigned_area = target_room.get_node("Area2D/CollisionShape2D") as CollisionShape2D
-		copy._set_state("wander")
 		
 		get_tree().current_scene.add_child(copy)
+		copy._set_state("wander")
 		entities_spawned.append({
 			"entity": copy,
 			"spawn_point": rand_point,
@@ -69,9 +69,9 @@ func _spawn_captain() -> void:
 	captain.position = rand_point
 	captain.assigned_area = target_room.get_node("Area2D/CollisionShape2D") as CollisionShape2D
 	captain.job = "captain"
-	captain._set_state("wander")
-			
+		
 	get_tree().current_scene.add_child.call_deferred(captain)
+	captain.call_deferred("_set_state", "wander")
 	Bus.emit_signal("on_entity_spawn", captain)
 	
 func _on_enemy_death(entity: Entity, _source: Variant) -> void:

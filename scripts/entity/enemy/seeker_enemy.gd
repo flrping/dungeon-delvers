@@ -10,25 +10,43 @@ const ATTACK_DISTANCE := 12.0
 
 var target: Node2D
 var last_known_target_pos: Vector2
-var can_refresh_target = true
+var can_refresh_target: bool = true
 
 func _ready() -> void:
-	_init()
+	states = {
+		"idle": preload("res://scripts/entity/states/entity_idle_state.gd").new(),
+		"wander": preload("res://scripts/entity/states/entity_wander_state.gd").new(),
+		"hunt": preload("res://scripts/entity/states/entity_hunt_state.gd").new()
+	}
+	
+	for _state in states.values():
+		_state.entity = self
+		add_child(_state)
+	
+	_set_state("idle")
+	
+	if job == "captain":
+		max_health = max_health * 2
+		speed = speed * 0.75
+	
 	frames.play("walk_down")
-	idle_time = randf_range(min_idle_time, max_idle_time)
 	navigation.target_position = global_position
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	if not state:
+		return
+		
 	if assigned_area == null:
 		return
 	
 	_check_for_targets()
-	_apply_state(delta)
 	_apply_i_frames(delta)
 	_check_damage_sources(delta, hurtbox)
+	
+	state.physics_update(delta)
 
-func _check_for_targets():
-	var found = false
+func _check_for_targets() -> void:
+	var found: bool = false
 	for detected in detection.get_overlapping_bodies():
 		if detected.is_in_group("Ally") and can_refresh_target:
 			target = detected
@@ -38,46 +56,3 @@ func _check_for_targets():
 			
 	if !found:
 		target = null
-
-func _apply_state(delta):
-	if state == "idle":
-		idle_timer += delta
-		if idle_timer >= idle_time:
-			_set_state("wander")
-	
-	elif state == "wander":
-		if navigation.is_navigation_finished():
-			_set_new_random_target()
-			idle_timer = 0.0
-			_set_state("idle")
-			return
-			
-		if not navigation.is_target_reachable():
-			print("Unreachable pos:", navigation.target_position)
-			_set_new_random_target()
-			return
-			
-		_wander(delta)
-		
-	elif state == "hunt":
-		_hunt(delta)
-
-func _hunt(_delta):
-	if target == null:
-		idle_timer = idle_time
-		_set_state("idle")
-		return
-		
-	var target_pos = target.global_position
-	last_known_target_pos = target_pos
-	var dist = global_position.distance_to(target_pos)
-		
-	if dist <= ATTACK_DISTANCE:
-		navigation.target_position = global_position
-	else:
-		navigation.target_position = target_pos
-	
-	var next_point: Vector2 = navigation.get_next_path_position()
-	var dir: Vector2 = next_point - global_position
-	velocity = dir.normalized() * speed
-	move_and_slide()

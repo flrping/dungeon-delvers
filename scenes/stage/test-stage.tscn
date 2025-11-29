@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://bffv6ewy7p8j3"]
 
-[ext_resource type="PackedScene" uid="uid://2oam16boclrl" path="res://scenes/entity/player/meredith_player.tscn" id="1_iqs4d"]
+[ext_resource type="PackedScene" uid="uid://2oam16boclrl" path="res://scenes/player/meredith_player.tscn" id="1_iqs4d"]
 [ext_resource type="PackedScene" uid="uid://dbeuoe62hodm3" path="res://scenes/spawner/room.tscn" id="2_rlo0c"]
 [ext_resource type="PackedScene" uid="uid://3ujkr01qy077" path="res://scenes/tilesets/tiles.tscn" id="3_j66t7"]
 [ext_resource type="AudioStream" uid="uid://c7qkqebcdlwnr" path="res://assets/tracks/xia.field - Level.mp3" id="4_rlo0c"]

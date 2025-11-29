@@ -181,6 +181,6 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="MeredithFrames" type="AnimatedSprite2D"]
+[node name="Frames" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_wxllt")
 animation = &"attack_side"
