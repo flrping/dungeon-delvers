@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://dcomp3tf3wsse"]
+
+[ext_resource type="Texture2D" uid="uid://cc4wht8ahkxqj" path="res://assets/sprites/goblindeez.png" id="1_krnkb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gaogu"]
+atlas = ExtResource("1_krnkb")
+region = Rect2(0, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65hbs"]
+atlas = ExtResource("1_krnkb")
+region = Rect2(17, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxyif"]
+atlas = ExtResource("1_krnkb")
+region = Rect2(34, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3kq3"]
+atlas = ExtResource("1_krnkb")
+region = Rect2(51, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aalua"]
+atlas = ExtResource("1_krnkb")
+region = Rect2(68, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys4ux"]
+atlas = ExtResource("1_krnkb")
+region = Rect2(85, 0, 17, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nm32q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gaogu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65hbs")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxyif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3kq3")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aalua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys4ux")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[node name="Frames" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_nm32q")
+animation = &"walk_up"

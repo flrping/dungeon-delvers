@@ -47,7 +47,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_pnc03")
 }],
 "loop": true,
-"name": &"walk_right",
+"name": &"walk_side",
 "speed": 4.0
 }, {
 "frames": [{
@@ -64,4 +64,4 @@ animations = [{
 
 [node name="Frames" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_wxllt")
-animation = &"walk_up"
+animation = &"walk_side"
