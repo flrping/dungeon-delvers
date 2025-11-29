@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://cktryo5wbcouh"]
+
+[ext_resource type="LabelSettings" uid="uid://dmsbms5e6jsi" path="res://scenes/fonts/pixel_font_settings.tres" id="1_jg20v"]
+[ext_resource type="PackedScene" uid="uid://c62mcfmsi7tf6" path="res://scenes/ui/progress_bar.tscn" id="1_s4ogp"]
+
+[node name="PlayerUI" type="CanvasLayer"]
+
+[node name="Level Label" type="Label" parent="."]
+offset_left = 976.0
+offset_top = 544.0
+offset_right = 1014.0
+offset_bottom = 580.0
+text = "Lv."
+label_settings = ExtResource("1_jg20v")
+
+[node name="Level Value Label" type="Label" parent="."]
+offset_left = 1024.0
+offset_top = 544.0
+offset_right = 1064.0
+offset_bottom = 580.0
+text = "1"
+label_settings = ExtResource("1_jg20v")
+
+[node name="KO Label" type="Label" parent="."]
+offset_left = 976.0
+offset_top = 584.0
+offset_right = 1017.0
+offset_bottom = 620.0
+text = "KO"
+label_settings = ExtResource("1_jg20v")
+
+[node name="KO Value Label" type="Label" parent="."]
+offset_left = 1024.0
+offset_top = 584.0
+offset_right = 1047.0
+offset_bottom = 620.0
+text = "0"
+label_settings = ExtResource("1_jg20v")
+
+[node name="Room Name Label" type="Label" parent="."]
+visible = false
+offset_left = 416.0
+offset_top = 520.0
+offset_right = 736.0
+offset_bottom = 556.0
+text = "Allied Base"
+label_settings = ExtResource("1_jg20v")
+horizontal_alignment = 1
+
+[node name="Spawner Life Bar" parent="." instance=ExtResource("1_s4ogp")]
+visible = false
+offset_left = 408.0
+offset_top = 584.0
+offset_right = 520.0
+offset_bottom = 591.0
+scale = Vector2(3, 3)

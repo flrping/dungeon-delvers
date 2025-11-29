@@ -2,16 +2,23 @@ extends Spawner
 
 class_name Room
 
-const ENEMY_COLOR: String = "#f1080032"
-const ALLY_COLOR: String = "#3d86c785"
+const ENEMY_COLOR: String = "#f8c53a30"
+
+var player
 
 func _ready() -> void:
 	_init()
 	if in_control:
-		color.set_color(ALLY_COLOR)
+		color.set_color(Global.player_color + "30")
 	else:
 		color.set_color(ENEMY_COLOR)
+	
+	player = get_tree().current_scene.get_node_or_null(Global.player_name + "Player")
+	if player == null:
+		print("Invalid player name?")
 		
+	$Area2D.connect("body_entered", _on_area_2d_body_entered)
+	$Area2D.connect("body_exited", _on_area_2d_body_exited)
 	Bus.connect("on_enemy_death", _on_enemy_death)
 	Bus.connect("on_ally_death", _on_ally_death)
 
@@ -24,13 +31,16 @@ func _on_enemy_death(entity: Entity, _source: Variant) -> void:
 		
 	tracked_entites.erase(entity)
 	
-	capture_progress += 25
+	capture_progress += 2
 	if capture_progress >= 100.0:
 		in_control = true
 		Bus.emit_signal("on_room_capture", self)
 		_on_room_capture()
 		capture_progress = 0
-		
+
+	var progress_bar: TextureProgressBar = player.get_node_or_null("PlayerUI/Spawner Life Bar")
+	progress_bar.value = 100 - capture_progress
+
 func _on_ally_death(entity: Entity, _source: Variant) -> void:
 	if not in_control:
 		return
@@ -40,7 +50,7 @@ func _on_ally_death(entity: Entity, _source: Variant) -> void:
 		
 	tracked_entites.erase(entity)
 	
-	capture_progress += 25
+	capture_progress += 2
 	if capture_progress >= 100.0:
 		in_control = false
 		Bus.emit_signal("on_room_capture", self)
@@ -53,6 +63,33 @@ func _on_room_capture() -> void:
 	tracked_entites.clear()
 	
 	if in_control:
-		color.set_color(ALLY_COLOR)
+		color.set_color(Global.player_color + "30")
 	else:
 		color.set_color(ENEMY_COLOR)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		var ui = player.get_node_or_null("PlayerUI")
+		if ui == null:
+			return
+			
+		var spawner_name: Label = ui.get_node("Room Name Label")
+		var progress_bar: TextureProgressBar = ui.get_node("Spawner Life Bar")
+		
+		spawner_name.text = name
+		spawner_name.visible = true
+		
+		progress_bar.value = 100 - capture_progress
+		progress_bar.visible = true
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):	
+		var ui = player.get_node_or_null("PlayerUI")
+		if ui == null:
+			return
+			
+		var spawner_name: Label = ui.get_node("Room Name Label")
+		var progress_bar: TextureProgressBar = ui.get_node("Spawner Life Bar")
+		
+		spawner_name.visible = false
+		progress_bar.visible = false

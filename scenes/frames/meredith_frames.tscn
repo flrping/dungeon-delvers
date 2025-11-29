@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://7cg7trfrr6n3"]
+[gd_scene load_steps=25 format=3 uid="uid://7cg7trfrr6n3"]
 
 [ext_resource type="Texture2D" uid="uid://cwys8v6eqjdyp" path="res://assets/sprites/meredithsideattack.png" id="1_4nej0"]
 [ext_resource type="Texture2D" uid="uid://crdv2jo4u6fp2" path="res://assets/sprites/meredithwalk.png" id="1_6dwxd"]
@@ -23,11 +23,15 @@ region = Rect2(186, 0, 62, 39)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wxllt"]
 atlas = ExtResource("1_4nej0")
-region = Rect2(9, 0, 49, 39)
+region = Rect2(0, 0, 54, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lkh0o"]
 atlas = ExtResource("1_4nej0")
-region = Rect2(58, 0, 49, 39)
+region = Rect2(54, 0, 54, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_boqtv"]
+atlas = ExtResource("1_4nej0")
+region = Rect2(108, 0, 54, 58)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oat36"]
 atlas = ExtResource("3_37gdd")
@@ -102,10 +106,13 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lkh0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_boqtv")
 }],
 "loop": false,
 "name": &"attack_side",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -176,4 +183,4 @@ animations = [{
 
 [node name="MeredithFrames" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_wxllt")
-animation = &"walk_down"
+animation = &"attack_side"

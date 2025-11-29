@@ -12,7 +12,7 @@ height = 16.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_srybl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h53ut"]
-radius = 83.00603
+radius = 85.0
 
 [node name="SeekerEnemy" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(2, 2)

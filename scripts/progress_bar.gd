@@ -9,3 +9,6 @@ func _ready() -> void:
 	min_value = _min_value
 	max_value = _max_value
 	value = initial_value
+
+func _on_value_changed(value: float) -> void:
+	pass

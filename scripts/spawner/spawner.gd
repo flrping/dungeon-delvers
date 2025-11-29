@@ -5,7 +5,7 @@ class_name Spawner
 @export var cooldown = 5.0
 @export var amount_per_spawn = 3
 @export var entity_limit = 15
-@export var enemy_entity_paths: Array[String] = ["res://scenes/entity/enemy/seeker_enemy.tscn"]
+@export var enemy_entity_paths: Array[String] = ["res://scenes/entity/enemy/slime_enemy.tscn"]
 @export var ally_entity_paths: Array[String] = ["res://scenes/entity/ally/soldier_ally.tscn"]
 @export var in_control = false
 
@@ -16,6 +16,7 @@ var capture_progress := 0.0
 var enemy_entities: Array[PackedScene] = []
 var ally_entities: Array[PackedScene] = []
 var tracked_entites: Array[Entity] = []
+var captain: Entity
 var timer = 0.0
 
 func _init() -> void:

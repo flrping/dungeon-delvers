@@ -2,13 +2,12 @@ extends Spawner
 
 class_name Outpost
 
-const ENEMY_COLOR: String = "#f1080032"
-const ALLY_COLOR: String = "#3d86c785"
+const ENEMY_COLOR: String = "#f8c53a30"
 
 func _ready() -> void:
 	_init()
 	if in_control:
-		color.set_color(ALLY_COLOR)
+		color.set_color(Global.player_color + "30")
 	else:
 		color.set_color(ENEMY_COLOR)
 		
@@ -52,6 +51,6 @@ func _on_outpost_capture() -> void:
 	tracked_entites.clear()
 	
 	if in_control:
-		color.set_color(ALLY_COLOR)
+		color.set_color(Global.player_color + "30")
 	else:
 		color.set_color(ENEMY_COLOR)

@@ -13,6 +13,9 @@ const SPEED: float = 200.0
 @export var max_idle_time: float = 10.0
 @export var search_time: float = 5.0
 @export var damage_source: String = "EnemyDamageSource"
+@export var job = "none"
+
+var jobs = ["none", "captain", "search_party"]
 
 @onready var navigation := $NavigationAgent2D
 

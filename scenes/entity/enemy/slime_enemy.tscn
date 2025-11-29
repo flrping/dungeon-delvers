@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://bubmijsrdbxl2"]
+
+[ext_resource type="Script" uid="uid://57nc3bxleo8e" path="res://scripts/entity/enemy/slime_enemy.gd" id="1_vb546"]
+[ext_resource type="PackedScene" uid="uid://uh1e3qk4vphu" path="res://scenes/frames/slime_frames.tscn" id="2_o2k3m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vx20s"]
+size = Vector2(16, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pg58"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o2k3m"]
+radius = 7.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vb546"]
+radius = 120.0
+
+[node name="SlimeEnemy" type="CharacterBody2D" groups=["Enemy"]]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 15
+script = ExtResource("1_vb546")
+slime_type = "Yellow"
+damage_source = "AllyDamageSource"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_vx20s")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -0.25)
+shape = SubResource("RectangleShape2D_7pg58")
+debug_color = Color(0.85882354, 0.27058825, 0.62352943, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="." groups=["EnemyDamageSource"]]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_o2k3m")
+debug_color = Color(0.26711667, 0.6163221, 0.42382464, 0.41960785)
+
+[node name="Detection" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_vb546")
+debug_color = Color(0.66399616, 0.5079127, 0.20244181, 0.41960785)
+
+[node name="Frames" parent="." instance=ExtResource("2_o2k3m")]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
