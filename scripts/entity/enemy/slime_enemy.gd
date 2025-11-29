@@ -88,7 +88,7 @@ func _hunt(delta):
 		if tick_timer > TICK_TIME:
 			frames.play("yellow_explode")
 			await frames.animation_finished
-			_take_damage(max_health)
+			_take_damage(max_health, Vector2.ZERO)
 		return
 		
 	var target_pos = target.global_position
@@ -122,4 +122,4 @@ func _hunt(delta):
 	is_jumping = true
 	jump_timer = 0.0
 	
-	velocity = dir.normalized() * SPEED * 2
+	velocity = dir.normalized() * speed * 2

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2jmutgefr3m0"]
+
+[ext_resource type="Script" uid="uid://dfmqof4vcv6st" path="res://scripts/spawner/party.gd" id="1_hanam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm7wl"]
+size = Vector2(90.5, 93)
+
+[node name="Party" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_hanam")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_lm7wl")

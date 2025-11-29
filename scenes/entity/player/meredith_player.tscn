@@ -81,5 +81,3 @@ disabled = true
 animation = &"idle"
 
 [node name="PlayerUI" parent="." instance=ExtResource("3_l8cg3")]
-
-[connection signal="on_player_damage" from="." to="." method="_on_on_player_damage"]

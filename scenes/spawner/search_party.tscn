@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnupfcb2ta5ks"]
+
+[ext_resource type="Script" uid="uid://nicfpwqoembc" path="res://scripts/spawner/search_party.gd" id="1_rk3c1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lm7wl"]
+size = Vector2(128, 128)
+
+[node name="SearchParty" type="Node2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_rk3c1")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_lm7wl")

@@ -4,4 +4,6 @@
 
 [resource]
 font = ExtResource("1_mmvh4")
-font_size = 24
+font_size = 36
+font_color = Color(0.91764706, 0.57254905, 0.26666668, 1)
+outline_size = 8

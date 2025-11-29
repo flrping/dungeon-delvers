@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cktryo5wbcouh"]
+[gd_scene load_steps=4 format=3 uid="uid://cktryo5wbcouh"]
 
 [ext_resource type="LabelSettings" uid="uid://dmsbms5e6jsi" path="res://scenes/fonts/pixel_font_settings.tres" id="1_jg20v"]
 [ext_resource type="PackedScene" uid="uid://c62mcfmsi7tf6" path="res://scenes/ui/progress_bar.tscn" id="1_s4ogp"]
+[ext_resource type="Script" uid="uid://fq8wih7mrtar" path="res://scripts/heart_group.gd" id="3_jg20v"]
 
 [node name="PlayerUI" type="CanvasLayer"]
 
@@ -40,12 +41,13 @@ label_settings = ExtResource("1_jg20v")
 [node name="Room Name Label" type="Label" parent="."]
 visible = false
 offset_left = 416.0
-offset_top = 520.0
+offset_top = 526.0
 offset_right = 736.0
-offset_bottom = 556.0
+offset_bottom = 562.0
 text = "Allied Base"
 label_settings = ExtResource("1_jg20v")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Spawner Life Bar" parent="." instance=ExtResource("1_s4ogp")]
 visible = false
@@ -54,3 +56,13 @@ offset_top = 584.0
 offset_right = 520.0
 offset_bottom = 591.0
 scale = Vector2(3, 3)
+
+[node name="Heart Group" type="Control" parent="."]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -1096.0
+offset_bottom = -592.0
+script = ExtResource("3_jg20v")

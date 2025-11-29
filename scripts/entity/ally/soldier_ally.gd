@@ -80,7 +80,7 @@ func _hunt(_delta):
 	
 	var next_point: Vector2 = navigation.get_next_path_position()
 	var dir: Vector2 = next_point - global_position
-	velocity = dir.normalized() * SPEED
+	velocity = dir.normalized() * speed
 	move_and_slide()
 
 func _search(delta):

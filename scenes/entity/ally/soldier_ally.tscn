@@ -12,8 +12,9 @@ height = 18.0
 radius = 62.03225
 
 [node name="SoldierAlly" type="CharacterBody2D" groups=["Ally"]]
+scale = Vector2(2, 2)
 collision_layer = 8
-collision_mask = 15
+collision_mask = 7
 script = ExtResource("1_5qds1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -11,16 +11,11 @@ const SPEED = 300.0
 
 @onready var frames: AnimatedSprite2D = $Frames
 @onready var hurtbox: Area2D  = $Hurtbox
-#@onready var health_bar = $PlayerUI/ProgressBar
 
 var prev_animation = ""
 var is_attacking = false
 
-signal on_player_damage
-
 func _ready() -> void:
-	#health_bar.max_value = max_health
-	#health_bar.value = max_health
 	pass
 	
 func _check_damage_sources(_delta) -> void:
@@ -72,8 +67,4 @@ func _take_damage(amount: float) -> void:
 	else:
 		current_health -= amount
 	
-	on_player_damage.emit(amount)
-
-func _on_on_player_damage(_amount: float) -> void:
-	#health_bar.value = current_health
-	pass
+	Bus.emit_signal("on_player_damage", self)

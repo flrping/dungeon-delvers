@@ -2,8 +2,6 @@ extends CharacterBody2D
 
 class_name Entity
 
-const SPEED: float = 200.0
-
 @export var max_health = 20.0
 @export var current_health = 20.0
 @export var i_frame = 200.0 # in ms
@@ -14,8 +12,9 @@ const SPEED: float = 200.0
 @export var search_time: float = 5.0
 @export var damage_source: String = "EnemyDamageSource"
 @export var job = "none"
+@export var speed = 250.0
 
-var jobs = ["none", "captain", "search_party"]
+var jobs = ["none", "captain", "party"]
 
 @onready var navigation := $NavigationAgent2D
 
@@ -27,14 +26,14 @@ var search_timer: float = 0.0
 
 # Warns if any entity is not prepared correctly. All mob entities need these.
 func _init() -> void:
-	#if assigned_area == null:
-		#print("No assigned area. Entity is frozen.")
-		#return
-		
 	if state not in states:
 		print("Invalid state. Using idle.")
 		state = "idle"
 		return
+		
+	if job == "captain":
+		max_health = max_health * 2
+		speed = speed * 0.75
 
 # Sets states.
 func _set_state(next_state) -> void:
@@ -46,7 +45,7 @@ func _set_state(next_state) -> void:
 func _wander(_delta) -> void:
 	var next_point: Vector2 = navigation.get_next_path_position()
 	var dir: Vector2 = next_point - global_position
-	velocity = dir.normalized() * SPEED
+	velocity = dir.normalized() * speed
 	move_and_slide()
 
 # Shared func so any entity can pathfind from their assigned areas.
@@ -73,14 +72,15 @@ func _check_damage_sources(_delta: Variant, hurtbox: Area2D) -> void:
 	
 	for source in hurtbox.get_overlapping_areas():
 		if source.is_in_group(damage_source):
-			_take_damage(10.0)
+			var knockback_dir = (global_position - source.global_position).normalized()
+			_take_damage(10.0, knockback_dir)
 			i_frame_timer = i_frame / 1000.0
 			return
 
-func _take_damage(amount: float) -> void:
+func _take_damage(amount: float, knockback_dir: Vector2) -> void:
+	velocity = knockback_dir * 250.0
 	current_health -= amount
 	
-	# TODO: find/set sources
 	Bus.emit_signal("on_enemy_damage", self, null)
 
 	if current_health <= 0:

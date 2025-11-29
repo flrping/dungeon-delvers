@@ -5,7 +5,7 @@ class_name Spawner
 @export var cooldown = 5.0
 @export var amount_per_spawn = 3
 @export var entity_limit = 15
-@export var enemy_entity_paths: Array[String] = ["res://scenes/entity/enemy/slime_enemy.tscn"]
+@export var enemy_entity_paths: Array[String] = ["res://scenes/entity/enemy/seeker_enemy.tscn", "res://scenes/entity/enemy/slime_enemy.tscn"]
 @export var ally_entity_paths: Array[String] = ["res://scenes/entity/ally/soldier_ally.tscn"]
 @export var in_control = false
 
@@ -18,6 +18,7 @@ var ally_entities: Array[PackedScene] = []
 var tracked_entites: Array[Entity] = []
 var captain: Entity
 var timer = 0.0
+var is_captain_dead = false
 
 func _init() -> void:
 	for entity_path in enemy_entity_paths:
@@ -62,3 +63,22 @@ func _attempt_spawn(delta) -> void:
 			})
 			tracked_entites.append(copy)
 			Bus.emit_signal("on_entity_spawn", copy)
+			
+func _spawn_captain() -> void:
+	is_captain_dead = false
+	if in_control:
+		captain = ally_entities[randi_range(0, ally_entities.size() - 1)].instantiate()
+	else:
+		captain = enemy_entities[randi_range(0, enemy_entities.size() - 1)].instantiate()
+			
+	var rect: Rect2 = area.shape.get_rect()
+	var spawn_x: float = randf_range(rect.position.x, rect.position.x + rect.size.x)
+	var spawn_y: float = randf_range(rect.position.y, rect.position.y + rect.size.y)
+	var rand_point: Vector2 = global_position + Vector2(spawn_x, spawn_y)
+	captain.scale = Vector2(3, 3)
+	captain.position = rand_point
+	captain.assigned_area = area
+	captain.job = "captain"
+			
+	get_tree().current_scene.add_child.call_deferred(captain)
+	Bus.emit_signal("on_entity_spawn", captain)
