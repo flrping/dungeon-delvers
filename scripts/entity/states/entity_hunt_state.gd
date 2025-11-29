@@ -26,4 +26,17 @@ func physics_update(delta: float) -> void:
 	var next_point: Vector2 = entity.navigation.get_next_path_position()
 	var dir: Vector2 = next_point - entity.global_position
 	entity.velocity = dir.normalized() * entity.speed
+	
+	var facing: Vector2 = entity.velocity.normalized()
+	if abs(facing.x) > abs(facing.y):
+		if facing.x < 0:
+			entity.facing_direction = Vector2.LEFT
+		else:
+			entity.facing_direction = Vector2.RIGHT 
+	else:
+		if facing.y < 0:
+			entity.facing_direction = Vector2.UP
+		else:
+			entity.facing_direction = Vector2.DOWN
+	
 	entity.move_and_slide()

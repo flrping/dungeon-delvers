@@ -40,6 +40,18 @@ func _physics_process(delta: float) -> void:
 		
 	if assigned_area == null:
 		return
+		
+	match facing_direction:
+		Vector2.UP:
+			frames.play("walk_up")
+		Vector2.DOWN:
+			frames.play("walk_down")
+		Vector2.LEFT:
+			frames.play("walk_side")
+			frames.flip_h = true
+		Vector2.RIGHT:
+			frames.play("walk_side")
+			frames.flip_h = false
 	
 	_check_for_targets()
 	_apply_i_frames(delta)

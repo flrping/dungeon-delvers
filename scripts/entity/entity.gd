@@ -23,6 +23,7 @@ var jobs: Array[Variant] = ["none", "captain", "party"]
 
 var state: EntityState
 var states: Dictionary[Variant, Variant] = {}
+var facing_direction: Vector2
 
 # Sets states.
 func _set_state(state_name) -> void:
