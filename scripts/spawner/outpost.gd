@@ -5,7 +5,13 @@ class_name Outpost
 const ENEMY_COLOR: String = "#f8c53a30"
 
 func _ready() -> void:
-	_init()
+	for entity_path in enemy_entity_paths:
+		var packed := load(entity_path) as PackedScene
+		enemy_entities.append(packed)
+		
+	for entity_path in ally_entity_paths:
+		var packed := load(entity_path) as PackedScene
+		ally_entities.append(packed)
 	if in_control:
 		color.set_color(Global.player_color + "30")
 	else:

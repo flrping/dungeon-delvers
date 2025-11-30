@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dn70lqpuia6hm"
+path="res://.godot/imported/xia.field - Char_Meredith.mp3-cef986092c9a85a807295a75d6d4b947.mp3str"
+
+[deps]
+
+source_file="res://assets/tracks/xia.field - Char_Meredith.mp3"
+dest_files=["res://.godot/imported/xia.field - Char_Meredith.mp3-cef986092c9a85a807295a75d6d4b947.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

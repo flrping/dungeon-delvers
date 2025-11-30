@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://g0xyqe62436u"
+path="res://.godot/imported/xia.field - Char_Boss 2025-11-29 20_00.mp3-508edaba6a56b881706f8dc0a07962a1.mp3str"
+
+[deps]
+
+source_file="res://assets/img/xia.field - Char_Boss 2025-11-29 20_00.mp3"
+dest_files=["res://.godot/imported/xia.field - Char_Boss 2025-11-29 20_00.mp3-508edaba6a56b881706f8dc0a07962a1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

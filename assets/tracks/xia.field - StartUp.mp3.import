@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dw5y0s13jcxio"
+path="res://.godot/imported/xia.field - StartUp.mp3-54de65fb6ef203b111cc37a54d8f3b4e.mp3str"
+
+[deps]
+
+source_file="res://assets/tracks/xia.field - StartUp.mp3"
+dest_files=["res://.godot/imported/xia.field - StartUp.mp3-54de65fb6ef203b111cc37a54d8f3b4e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -4,18 +4,19 @@ class_name Room
 
 const ENEMY_COLOR: String = "#f8c53a30"
 
-var player
-
 func _ready() -> void:
-	_init()
+	for entity_path in enemy_entity_paths:
+		var packed := load(entity_path) as PackedScene
+		enemy_entities.append(packed)
+		
+	for entity_path in ally_entity_paths:
+		var packed := load(entity_path) as PackedScene
+		ally_entities.append(packed)
+		
 	if in_control:
 		color.set_color(Global.player_color + "30")
 	else:
 		color.set_color(ENEMY_COLOR)
-	
-	player = get_tree().current_scene.get_node_or_null(Global.player_name + "Player")
-	if player == null:
-		print("Invalid player name?")
 		
 	$Area2D.connect("body_entered", _on_area_2d_body_entered)
 	$Area2D.connect("body_exited", _on_area_2d_body_exited)
@@ -45,6 +46,7 @@ func _on_enemy_death(entity: Entity, _source: Variant) -> void:
 		_on_room_capture()
 		capture_progress = 0
 
+	var player = get_tree().current_scene.get_node_or_null(Global.player_name + "Player")
 	var progress_bar: TextureProgressBar = player.get_node_or_null("PlayerUI/Spawner Life Bar")
 	progress_bar.value = 100 - capture_progress
 
@@ -83,6 +85,7 @@ func _on_room_capture() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		var player = get_tree().current_scene.get_node_or_null(Global.player_name + "Player")
 		var ui = player.get_node_or_null("PlayerUI")
 		if ui == null:
 			return
@@ -99,7 +102,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		Bus.emit_signal("on_room_enter", self)
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body.is_in_group("Player"):	
+	if body.is_in_group("Player"):
+		var player = get_tree().current_scene.get_node_or_null(Global.player_name + "Player")
 		var ui = player.get_node_or_null("PlayerUI")
 		if ui == null:
 			return

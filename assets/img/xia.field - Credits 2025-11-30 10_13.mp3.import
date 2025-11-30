@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bx3s7b1mc0n0i"
+path="res://.godot/imported/xia.field - Credits 2025-11-30 10_13.mp3-f89c1e0a2547d8e5e43a2945620b93a9.mp3str"
+
+[deps]
+
+source_file="res://assets/img/xia.field - Credits 2025-11-30 10_13.mp3"
+dest_files=["res://.godot/imported/xia.field - Credits 2025-11-30 10_13.mp3-f89c1e0a2547d8e5e43a2945620b93a9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

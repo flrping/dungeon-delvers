@@ -1,5 +1,6 @@
 extends Node
 
+signal on_game_start()
 signal on_player_damage(player, source)
 signal on_player_death(player, source)
 signal on_ally_damage(entity, source)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c15ew8rn3w8un"
+path="res://.godot/imported/xia.field - Main_Menu.mp3-17876e3315c6056ae861d2259b28d740.mp3str"
+
+[deps]
+
+source_file="res://assets/tracks/xia.field - Main_Menu.mp3"
+dest_files=["res://.godot/imported/xia.field - Main_Menu.mp3-17876e3315c6056ae861d2259b28d740.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

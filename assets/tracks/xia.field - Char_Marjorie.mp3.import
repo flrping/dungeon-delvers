@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bqafo40obwv0h"
+path="res://.godot/imported/xia.field - Char_Marjorie.mp3-62c59d258b68e76607355f1cd23b3647.mp3str"
+
+[deps]
+
+source_file="res://assets/tracks/xia.field - Char_Marjorie.mp3"
+dest_files=["res://.godot/imported/xia.field - Char_Marjorie.mp3-62c59d258b68e76607355f1cd23b3647.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

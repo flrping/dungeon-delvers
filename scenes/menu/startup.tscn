@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://dobtiw1m4fae5"]
+
+[ext_resource type="Script" uid="uid://b40v3ic2gvtlx" path="res://scripts/menu/startup.gd" id="1_p8rv7"]
+[ext_resource type="Texture2D" uid="uid://kru1fdg0aiaf" path="res://assets/img/wyrmlings.png" id="1_vrt3l"]
+[ext_resource type="AudioStream" uid="uid://dw5y0s13jcxio" path="res://assets/tracks/xia.field - StartUp.mp3" id="2_x4gtd"]
+
+[node name="Startup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p8rv7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -72.0
+offset_top = -15.0
+offset_right = 1242.0
+offset_bottom = 682.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -123.00001
+offset_top = -81.00001
+offset_right = 1627.0
+offset_bottom = 1089.0
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_vrt3l")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_x4gtd")
+volume_db = -15.0
+autoplay = true

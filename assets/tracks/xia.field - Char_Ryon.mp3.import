@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3q3tsg16myrw"
+path="res://.godot/imported/xia.field - Char_Ryon.mp3-7c534d1b6bbce9c4a9e7a1c937484b86.mp3str"
+
+[deps]
+
+source_file="res://assets/tracks/xia.field - Char_Ryon.mp3"
+dest_files=["res://.godot/imported/xia.field - Char_Ryon.mp3-7c534d1b6bbce9c4a9e7a1c937484b86.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

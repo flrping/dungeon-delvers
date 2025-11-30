@@ -26,15 +26,6 @@ var captain: Entity
 var timer = 0.0
 var is_captain_dead = false
 
-func _init() -> void:
-	for entity_path in enemy_entity_paths:
-		var packed := load(entity_path) as PackedScene
-		enemy_entities.append(packed)
-		
-	for entity_path in ally_entity_paths:
-		var packed := load(entity_path) as PackedScene
-		ally_entities.append(packed)
-
 func _process(delta: float) -> void:
 	_attempt_spawn(delta)
 

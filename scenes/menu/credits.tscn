@@ -1,0 +1,244 @@
+[gd_scene load_steps=25 format=4 uid="uid://biqc42k4bem35"]
+
+[ext_resource type="PackedScene" uid="uid://3ujkr01qy077" path="res://scenes/tilesets/tiles.tscn" id="1_4y82v"]
+[ext_resource type="Script" uid="uid://crk1o4p3uxhfk" path="res://scripts/menu/credits.gd" id="1_cwv0x"]
+[ext_resource type="PackedScene" uid="uid://7cg7trfrr6n3" path="res://scenes/frames/meredith_frames.tscn" id="2_wobx1"]
+[ext_resource type="PackedScene" uid="uid://dmjv83ink67f6" path="res://scenes/frames/majorie_frames.tscn" id="3_oh8hr"]
+[ext_resource type="PackedScene" uid="uid://nlwl82e5gwwm" path="res://scenes/frames/ryon_ally_frames.tscn" id="4_ev03l"]
+[ext_resource type="PackedScene" uid="uid://d1k22io5wa57j" path="res://scenes/frames/ryon_frames.tscn" id="5_6yft3"]
+[ext_resource type="PackedScene" uid="uid://05xmmhorhl8x" path="res://scenes/frames/trident_frames.tscn" id="6_kfssv"]
+[ext_resource type="PackedScene" uid="uid://cstp7ix6i1od6" path="res://scenes/frames/meredith_ally_frames.tscn" id="7_kfssv"]
+[ext_resource type="PackedScene" uid="uid://djpurrl4f6tkf" path="res://scenes/frames/jade_ally_frames.tscn" id="8_dsnbq"]
+[ext_resource type="PackedScene" uid="uid://xrfu2eycnk4p" path="res://scenes/frames/goblin_frames.tscn" id="9_v08je"]
+[ext_resource type="PackedScene" uid="uid://cjbxoaatpl56l" path="res://scenes/frames/jade_frames.tscn" id="10_no4j4"]
+[ext_resource type="PackedScene" uid="uid://dcomp3tf3wsse" path="res://scenes/frames/lich_frames.tscn" id="11_g3mcp"]
+[ext_resource type="PackedScene" uid="uid://d4lrit76wlbw0" path="res://scenes/frames/lich_eye_frames.tscn" id="12_cwv0x"]
+[ext_resource type="PackedScene" uid="uid://uh1e3qk4vphu" path="res://scenes/frames/slime_frames.tscn" id="13_05x5b"]
+[ext_resource type="PackedScene" uid="uid://csn4g25aqu7bs" path="res://scenes/frames/vampire_frames.tscn" id="14_yffmp"]
+[ext_resource type="PackedScene" uid="uid://u6hbs2lpo0qk" path="res://scenes/frames/mimic_frames.tscn" id="15_q0mqj"]
+[ext_resource type="PackedScene" uid="uid://w205v26jkt0y" path="res://scenes/frames/skeleton_frames.tscn" id="16_ihp0o"]
+[ext_resource type="PackedScene" uid="uid://cbg85ycil1vd2" path="res://scenes/frames/seer_frames.tscn" id="17_t7he5"]
+[ext_resource type="PackedScene" uid="uid://bpi5syyxmnsai" path="res://scenes/frames/seeker_frames.tscn" id="18_nqdjc"]
+[ext_resource type="FontFile" uid="uid://bvacfqo8p773s" path="res://assets/fonts/Alkhemikal.ttf" id="19_fcke5"]
+[ext_resource type="AudioStream" uid="uid://bx3s7b1mc0n0i" path="res://assets/img/xia.field - Credits 2025-11-30 10_13.mp3" id="21_05x5b"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cdmvs"]
+font = ExtResource("19_fcke5")
+font_size = 32
+
+[sub_resource type="Theme" id="Theme_05x5b"]
+default_font = ExtResource("19_fcke5")
+default_font_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yffmp"]
+bg_color = Color(0.83517945, 0.51043487, 0.247249, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.50808686, 0.2897141, 0.105318375, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 30.0
+expand_margin_top = 5.0
+expand_margin_right = 30.0
+expand_margin_bottom = 5.0
+anti_aliasing = false
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cwv0x")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -37.0
+offset_top = -13.0
+offset_right = 1219.0
+offset_bottom = 673.0
+color = Color(0.08235294, 0.08235294, 0.08235294, 1)
+
+[node name="Tiles" parent="." instance=ExtResource("1_4y82v")]
+tile_map_data = PackedByteArray("AAAAACYAAQAJAAUAAAAAACcAAQAJAAUAAAAAACgAAQAJAAUAAAABACgAAQAJAAUAAAACACgAAQAJAAUAAAADACgAAQAJAAUAAAACACcAAQAJAAUAAAABACcAAQAJAAUAAAABACYAAQABAAMAAAACACYAAQABAAMAAAADACYAAQABAAMAAAADACcAAQAJAAUAAAAEACcAAQAJAAUAAAAFACcAAQABAAIAAAAFACgAAQAJAAUAAAAEACgAAQAJAAUAAAAGACcAAQABAAIAAAAHACcAAQABAAIAAAAIACcAAQABAAIAAAAJACcAAQAJAAUAAAAJACgAAQAJAAUAAAAIACgAAQAJAAUAAAAHACgAAQAJAAUAAAAGACgAAQAJAAIAAAAKACcAAQAJAAUAAAALACcAAQABAAIAAAALACgAAQAJAAUAAAAKACgAAQAJAAUAAAAFACYAAQABAAMAAAAGACYAAQABAAMAAAAHACYAAQABAAMAAAAIACYAAQABAAMAAAAJACYAAQABAAMAAAAKACYAAQABAAMAAAALACYAAQABAAMAAAAMACYAAQABAAMAAAANACYAAQABAAMAAAAOACcAAQAJAAUAAAAPACcAAQAJAAEAAAAQACcAAQAJAAUAAAARACcAAQAJAAUAAAANACcAAQABAAIAAAAMACcAAQAJAAUAAAAEACYAAQABAAMAAAASACcAAQAJAAUAAAATACcAAQAJAAUAAAAUACcAAQAJAAUAAAAOACYAAQABAAMAAAAPACYAAQAJAAUAAAAQACYAAQAJAAUAAAARACYAAQABAAIAAAASACYAAQABAAIAAAATACYAAQAJAAUAAAAUACYAAQABAAIAAAAVACYAAQABAAIAAAAWACYAAQABAAIAAAAXACYAAQAJAAUAAAAYACYAAQABAAIAAAAZACYAAQABAAIAAAAaACYAAQABAAIAAAAbACYAAQABAAIAAAAcACYAAQABAAIAAAAdACYAAQABAAIAAAAeACYAAQABAAIAAAAcACcAAQABAAIAAAAbACcAAQABAAIAAAAaACcAAQABAAIAAAAZACcAAQABAAIAAAAYACcAAQABAAIAAAAXACcAAQABAAIAAAAWACcAAQABAAIAAAAVACcAAQABAAIAAAAMACgAAQAJAAUAAAANACgAAQAJAAIAAAAOACgAAQAJAAUAAAAPACgAAQAJAAUAAAAQACgAAQAJAAUAAAARACgAAQAJAAUAAAASACgAAQAJAAUAAAATACgAAQAJAAUAAAAUACgAAQAJAAIAAAAVACgAAQAJAAUAAAAWACgAAQAJAAUAAAAXACgAAQAJAAUAAAAYACgAAQAJAAUAAAAdACcAAQABAAIAAAAeACcAAQABAAIAAAAfACcAAQABAAIAAAAgACcAAQABAAIAAAAhACcAAQABAAIAAAAiACcAAQABAAIAAAAjACcAAQABAAIAAAAkACcAAQABAAIAAAAlACcAAQABAAIAAAAmACcAAQABAAIAAAAnACcAAQABAAIAAAAoACcAAQABAAIAAAApACcAAQABAAIAAAAqACcAAQABAAIAAAArACcAAQABAAIAAAAsACcAAQABAAIAAAAtACcAAQAJAAUAAAAuACcAAQAJAAUAAAAvACYAAQABAAIAAAAwACYAAQAJAAUAAAAuACYAAQABAAIAAAAtACYAAQABAAIAAAAsACYAAQABAAIAAAArACYAAQABAAIAAAAqACYAAQABAAIAAAApACYAAQABAAIAAAAoACYAAQABAAIAAAAnACYAAQABAAIAAAAmACYAAQABAAIAAAAlACYAAQABAAIAAAAkACYAAQABAAIAAAAjACYAAQABAAIAAAAiACYAAQABAAIAAAAhACYAAQABAAIAAAAgACYAAQABAAIAAAAfACYAAQABAAIAAAAaACgAAQAJAAUAAAAbACgAAQAJAAEAAAAcACgAAQAJAAUAAAAdACgAAQAJAAUAAAAeACgAAQAJAAUAAAAfACgAAQAJAAUAAAAgACgAAQAJAAUAAAAhACgAAQAJAAUAAAAiACgAAQAJAAUAAAAjACgAAQAJAAUAAAAkACgAAQAJAAUAAAAlACgAAQAJAAUAAAAmACgAAQAJAAEAAAAnACgAAQAJAAUAAAAoACgAAQAJAAUAAAApACgAAQAJAAUAAAAqACgAAQAJAAUAAAArACgAAQAJAAUAAAAsACgAAQAJAAUAAAAtACgAAQAJAAUAAAAuACgAAQAJAAUAAAAvACcAAQAKAAIAAAAwACcAAQAJAAUAAAAxACcAAQAJAAUAAAAZACgAAQAJAAUAAAAyACcAAQAJAAUAAAAzACcAAQAJAAUAAAA0ACcAAQAJAAUAAAA1ACcAAQAJAAUAAAA2ACcAAQAJAAUAAAA3ACcAAQAJAAUAAAA4ACcAAQAJAAUAAAA5ACcAAQAJAAEAAAA6ACcAAQABAAIAAAA7ACcAAQABAAIAAAA8ACcAAQABAAIAAAA9ACcAAQABAAIAAAA+ACcAAQABAAIAAAA/ACcAAQABAAIAAAA/ACYAAQABAAMAAABAACYAAQABAAMAAABBACYAAQABAAMAAABBACcAAQABAAIAAABCACcAAQAJAAUAAABDACcAAQABAAIAAABEACcAAQAJAAUAAABFACcAAQAJAAUAAABGACcAAQAJAAUAAABGACYAAQAJAAUAAABFACYAAQAJAAUAAABEACYAAQABAAMAAABDACYAAQABAAMAAABCACYAAQABAAMAAAA+ACYAAQABAAMAAAA9ACYAAQABAAMAAAA8ACYAAQABAAMAAAA7ACYAAQABAAMAAAA6ACYAAQABAAMAAAA5ACYAAQABAAMAAAA4ACYAAQABAAMAAAA3ACYAAQABAAIAAAA2ACYAAQAJAAUAAAA1ACYAAQAJAAIAAAA0ACYAAQAJAAUAAAAzACYAAQAJAAUAAAAyACYAAQABAAIAAAAxACYAAQABAAIAAABHACYAAQAJAAUAAABIACYAAQAJAAUAAABIACcAAQAJAAUAAABIACgAAQAJAAUAAABHACgAAQAJAAUAAABGACgAAQAJAAUAAABFACgAAQAJAAUAAABEACgAAQAJAAUAAABDACgAAQAJAAUAAABCACgAAQAJAAUAAABBACgAAQAJAAUAAABAACgAAQAJAAUAAAA/ACgAAQAJAAUAAAA+ACgAAQAJAAUAAAA9ACgAAQAJAAUAAAA8ACgAAQAJAAUAAAA7ACgAAQAJAAUAAAA6ACgAAQAJAAUAAAA5ACgAAQAJAAUAAAA4ACgAAQAJAAUAAAA3ACgAAQAJAAIAAAA2ACgAAQAJAAUAAAA1ACgAAQAJAAUAAAA0ACgAAQAJAAUAAAAzACgAAQAJAAIAAAAyACgAAQAJAAUAAAAxACgAAQAJAAUAAAAwACgAAQAJAAUAAAAvACgAAQAJAAUAAABAACcAAQABAAIAAABHACcAAQAJAAUAAAAAACUAAQAAAAAAAAAAACQAAQAAAAAAAAAAACMAAQAAAAAAAAAAACIAAQAAAAAAAAAAACEAAQAAAAAAAAABACIAAQAAAAIAAAACACIAAQAAAAIAAAADACIAAQAAAAIAAAAEACIAAQAAAAIAAAAFACIAAQAAAAIAAAAGACIAAQAAAAIAAAAHACIAAQAAAAIAAAAIACIAAQAAAAIAAAAJACIAAQAAAAIAAAAKACIAAQAAAAIAAAALACIAAQAAAAIAAAAMACIAAQAAAAIAAAANACIAAQAAAAIAAAAOACIAAQAAAAIAAAAPACIAAQAAAAAAAAAPACMAAQAAAAAAAAAOACUAAQAAAAIAAAANACUAAQAAAAIAAAAMACUAAQAAAAIAAAALACUAAQAAAAIAAAAKACUAAQAAAAIAAAAJACUAAQAAAAIAAAAIACUAAQAAAAIAAAAHACUAAQAAAAIAAAAGACUAAQAAAAIAAAAFACUAAQAAAAIAAAAEACUAAQAAAAIAAAADACUAAQAAAAIAAAACACUAAQAAAAIAAAABACUAAQAAAAIAAAABACQAAQAAAAIAAAABACMAAQAAAAIAAAACACMAAQAAAAIAAAADACMAAQAAAAIAAAAEACMAAQAAAAIAAAAFACMAAQAAAAIAAAAGACMAAQAAAAIAAAAHACMAAQAAAAIAAAAIACMAAQAAAAIAAAAJACMAAQAAAAIAAAAKACMAAQAAAAIAAAALACMAAQAAAAIAAAAMACMAAQAAAAIAAAANACMAAQAAAAIAAAAOACMAAQAAAAIAAAAOACQAAQAAAAIAAAANACQAAQAAAAIAAAAMACQAAQAAAAIAAAALACQAAQAAAAIAAAAKACQAAQAAAAIAAAAJACQAAQAAAAIAAAAIACQAAQAAAAIAAAAHACQAAQAAAAIAAAAGACQAAQAAAAIAAAAFACQAAQAAAAIAAAAEACQAAQAAAAIAAAADACQAAQAAAAIAAAACACQAAQAAAAIAAAAPACEAAQAAAAAAAAA3ACMAAQAAAAAAAAA3ACIAAQAAAAAAAAA3ACEAAQAAAAAAAABFACEAAQAAAAAAAABFACIAAQAAAAAAAABFACMAAQAAAAAAAABFACQAAQAAAAAAAABFACUAAQAAAAAAAABEACIAAQAAAAIAAABDACIAAQAAAAIAAABCACIAAQAAAAIAAABBACIAAQAAAAIAAABAACIAAQAAAAIAAAA/ACIAAQAAAAIAAAA+ACIAAQAAAAIAAAA9ACIAAQAAAAIAAAA8ACIAAQAAAAIAAAA7ACIAAQAAAAIAAAA6ACIAAQAAAAIAAAA5ACIAAQAAAAIAAAA4ACIAAQAAAAIAAAA4ACMAAQAAAAIAAAA4ACQAAQAAAAIAAAA4ACUAAQAAAAIAAAA5ACUAAQAAAAIAAAA6ACUAAQAAAAIAAAA7ACUAAQAAAAIAAAA8ACUAAQAAAAIAAAA9ACUAAQAAAAIAAAA+ACUAAQAAAAIAAAA/ACUAAQAAAAIAAABAACUAAQAAAAIAAABBACUAAQAAAAIAAABCACUAAQAAAAIAAABDACUAAQAAAAIAAABDACQAAQAAAAIAAABEACQAAQAAAAIAAABEACMAAQAAAAIAAABDACMAAQAAAAIAAABCACMAAQAAAAIAAABBACMAAQAAAAIAAABAACMAAQAAAAIAAAA/ACMAAQAAAAIAAAA+ACMAAQAAAAIAAAA9ACMAAQAAAAIAAAA8ACMAAQAAAAIAAAA7ACMAAQAAAAIAAAA6ACMAAQAAAAIAAAA5ACMAAQAAAAIAAAA5ACQAAQAAAAIAAAA6ACQAAQAAAAIAAAA7ACQAAQAAAAIAAAA8ACQAAQAAAAIAAAA9ACQAAQAAAAIAAAA+ACQAAQAAAAIAAAA/ACQAAQAAAAIAAABAACQAAQAAAAIAAABBACQAAQAAAAIAAABCACQAAQAAAAIAAABEACUAAQAAAAIAAAA=")
+
+[node name="Tiles2" parent="." instance=ExtResource("1_4y82v")]
+tile_map_data = PackedByteArray("AAACACUAAQABAAAAAAA+ACUAAQACAAAAAABCACUAAQACAAAAAAA=")
+
+[node name="Frames" parent="." instance=ExtResource("2_wobx1")]
+position = Vector2(643, 598)
+
+[node name="Frames2" parent="." instance=ExtResource("3_oh8hr")]
+position = Vector2(681, 620)
+animation = &"attack_side"
+flip_h = true
+
+[node name="Frames3" parent="." instance=ExtResource("4_ev03l")]
+position = Vector2(755, 606)
+animation = &"attack_side"
+flip_h = true
+
+[node name="Frames21" parent="." instance=ExtResource("4_ev03l")]
+position = Vector2(834, 621)
+animation = &"attack_side"
+flip_h = true
+
+[node name="Frames23" parent="." instance=ExtResource("4_ev03l")]
+position = Vector2(922, 607)
+animation = &"attack_side"
+flip_h = true
+
+[node name="Frames4" parent="." instance=ExtResource("5_6yft3")]
+position = Vector2(622, 627)
+animation = &"attack_side"
+frame = 3
+flip_h = true
+
+[node name="Frames5" parent="." instance=ExtResource("6_kfssv")]
+position = Vector2(571, 581)
+frame = 0
+frame_progress = 0.24859026
+
+[node name="Frames6" parent="." instance=ExtResource("7_kfssv")]
+position = Vector2(731, 636)
+animation = &"walk_side"
+flip_h = true
+
+[node name="Frames27" parent="." instance=ExtResource("7_kfssv")]
+position = Vector2(944, 634)
+animation = &"walk_side"
+flip_h = true
+
+[node name="Frames22" parent="." instance=ExtResource("7_kfssv")]
+position = Vector2(813, 610)
+animation = &"walk_side"
+flip_h = true
+
+[node name="Frames24" parent="." instance=ExtResource("7_kfssv")]
+position = Vector2(883, 627)
+animation = &"walk_side"
+flip_h = true
+
+[node name="Frames7" parent="." instance=ExtResource("8_dsnbq")]
+position = Vector2(791, 627)
+animation = &"walk_side"
+flip_h = true
+
+[node name="Frames26" parent="." instance=ExtResource("8_dsnbq")]
+position = Vector2(1004, 629)
+animation = &"walk_side"
+flip_h = true
+
+[node name="Frames25" parent="." instance=ExtResource("8_dsnbq")]
+position = Vector2(865, 607)
+animation = &"walk_side"
+flip_h = true
+
+[node name="Frames9" parent="." instance=ExtResource("9_v08je")]
+position = Vector2(470, 607)
+animation = &"walk_side"
+
+[node name="Frames8" parent="." instance=ExtResource("10_no4j4")]
+position = Vector2(488, 604)
+animation = &"attack_side"
+frame = 2
+flip_h = true
+
+[node name="Frames10" parent="." instance=ExtResource("11_g3mcp")]
+position = Vector2(443, 591)
+flip_h = true
+
+[node name="Frames11" parent="." instance=ExtResource("12_cwv0x")]
+position = Vector2(409, 602)
+animation = &"walk_side"
+
+[node name="Frames12" parent="." instance=ExtResource("9_v08je")]
+position = Vector2(360, 616)
+animation = &"walk_side"
+
+[node name="Frames13" parent="." instance=ExtResource("13_05x5b")]
+position = Vector2(325, 609)
+animation = &"green_move"
+frame = 0
+frame_progress = 0.0
+
+[node name="Frames14" parent="." instance=ExtResource("13_05x5b")]
+position = Vector2(308, 620)
+animation = &"dark_red_move"
+frame = 0
+frame_progress = 0.0
+
+[node name="Frames15" parent="." instance=ExtResource("14_yffmp")]
+position = Vector2(272, 635)
+
+[node name="Frames16" parent="." instance=ExtResource("14_yffmp")]
+position = Vector2(252, 623)
+animation = &"walk_side"
+
+[node name="Frames17" parent="." instance=ExtResource("15_q0mqj")]
+position = Vector2(218, 607)
+frame = 3
+
+[node name="Frames18" parent="." instance=ExtResource("16_ihp0o")]
+position = Vector2(182, 623)
+animation = &"walk_side"
+
+[node name="Frames19" parent="." instance=ExtResource("17_t7he5")]
+position = Vector2(154, 607)
+animation = &"walk_side"
+
+[node name="Frames20" parent="." instance=ExtResource("18_nqdjc")]
+position = Vector2(122, 624)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 87.0
+offset_right = 1008.0
+offset_bottom = 539.0
+text = "Dungeon Delvers - Credits
+
+Jaelyn Vaughan (flrp) - Programmer, Game Design
+Retr0Headphones - Artist, SFX Design, Narrative Design
+XIA - Composer
+Alkhemikal Font - Jeti
+
+Additional Thanks To
+freesound_community
+
+
+
+"
+label_settings = SubResource("LabelSettings_cdmvs")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 40.0
+offset_right = 140.0
+offset_bottom = 72.0
+theme = SubResource("Theme_05x5b")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yffmp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yffmp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yffmp")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_yffmp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yffmp")
+action_mode = 0
+text = "Back
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_05x5b")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

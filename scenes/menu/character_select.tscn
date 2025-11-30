@@ -1,0 +1,245 @@
+[gd_scene load_steps=18 format=3 uid="uid://3lnn4hgr7xw2"]
+
+[ext_resource type="Texture2D" uid="uid://bm0y8b8csly0f" path="res://assets/sprites/characterselect.png" id="1_0frw4"]
+[ext_resource type="Script" uid="uid://da13t2fbd8qxo" path="res://scripts/menu/character_select.gd" id="1_nbeft"]
+[ext_resource type="Texture2D" uid="uid://d03ic2beoyvny" path="res://assets/img/Untitled_Artwork.png" id="2_nbeft"]
+[ext_resource type="Texture2D" uid="uid://d0ja63vadwl6g" path="res://assets/img/Untitled_Artwork_M.png" id="3_i4i37"]
+[ext_resource type="Texture2D" uid="uid://b2ul425dsah11" path="res://assets/img/Untitled_Artwork_MR.png" id="4_m7y3p"]
+[ext_resource type="FontFile" uid="uid://bvacfqo8p773s" path="res://assets/fonts/Alkhemikal.ttf" id="5_2mxrx"]
+[ext_resource type="AudioStream" uid="uid://dn70lqpuia6hm" path="res://assets/tracks/xia.field - Char_Meredith.mp3" id="7_i4i37"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aofas"]
+atlas = ExtResource("1_0frw4")
+region = Rect2(40, 3, 36, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f1j4"]
+atlas = ExtResource("1_0frw4")
+region = Rect2(40, 76, 36, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edg0r"]
+atlas = ExtResource("1_0frw4")
+region = Rect2(2, 4, 36, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_infpe"]
+atlas = ExtResource("1_0frw4")
+region = Rect2(2, 76, 36, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xshtt"]
+atlas = ExtResource("1_0frw4")
+region = Rect2(78, 3, 36, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmfmp"]
+atlas = ExtResource("1_0frw4")
+region = Rect2(78, 76, 36, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kc6fm"]
+atlas = ExtResource("1_0frw4")
+region = Rect2(117, 3, 36, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrurv"]
+atlas = ExtResource("1_0frw4")
+region = Rect2(117, 76, 36, 46)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hnyt8"]
+font = ExtResource("5_2mxrx")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_fkck3"]
+font = ExtResource("5_2mxrx")
+font_size = 32
+font_color = Color(0, 0, 0, 1)
+
+[node name="CharacterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nbeft")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -22.0
+offset_top = -17.0
+offset_right = 1169.0
+offset_bottom = 667.0
+color = Color(0, 0, 0, 1)
+
+[node name="Meredith" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 56.0
+offset_right = 108.0
+offset_bottom = 100.0
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_aofas")
+stretch_mode = 3
+
+[node name="MeredithSelect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 72.0
+offset_top = 48.0
+offset_right = 108.0
+offset_bottom = 94.0
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_8f1j4")
+stretch_mode = 2
+
+[node name="Ryon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 60.0
+offset_right = 266.0
+offset_bottom = 104.0
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_edg0r")
+stretch_mode = 3
+
+[node name="RyonSelect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 230.0
+offset_top = 48.0
+offset_right = 266.0
+offset_bottom = 94.0
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_infpe")
+stretch_mode = 2
+
+[node name="Marjorie" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 56.0
+offset_right = 420.0
+offset_bottom = 100.0
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_xshtt")
+stretch_mode = 3
+
+[node name="MarjorieSelect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 388.0
+offset_top = 48.0
+offset_right = 424.0
+offset_bottom = 94.0
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_pmfmp")
+stretch_mode = 2
+
+[node name="Jade" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 538.0
+offset_top = 56.0
+offset_right = 578.0
+offset_bottom = 100.0
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_kc6fm")
+stretch_mode = 3
+
+[node name="JadeSelect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 546.0
+offset_top = 48.0
+offset_right = 582.0
+offset_bottom = 94.0
+scale = Vector2(4, 4)
+texture = SubResource("AtlasTexture_lrurv")
+stretch_mode = 2
+
+[node name="RyonSplash" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 560.0
+offset_top = 52.0
+offset_right = 1254.0
+offset_bottom = 751.0
+texture = ExtResource("2_nbeft")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MeredithSplash" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 580.0
+offset_top = -171.0
+offset_right = 1445.0
+offset_bottom = 702.0
+texture = ExtResource("3_i4i37")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MarjorieSplash" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 583.0
+offset_top = -171.0
+offset_right = 1448.0
+offset_bottom = 702.0
+texture = ExtResource("4_m7y3p")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Descriptions" type="Label" parent="."]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 253.0
+offset_right = 695.0
+offset_bottom = 630.0
+text = "Description"
+label_settings = SubResource("LabelSettings_hnyt8")
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MeredithLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 196.0
+offset_right = 216.0
+offset_bottom = 232.0
+text = "Meredith"
+label_settings = SubResource("LabelSettings_fkck3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RyonLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 196.0
+offset_right = 374.0
+offset_bottom = 232.0
+text = "Ryon"
+label_settings = SubResource("LabelSettings_fkck3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MajorieLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 196.0
+offset_right = 532.0
+offset_bottom = 232.0
+text = "Marjorie"
+label_settings = SubResource("LabelSettings_fkck3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="JadeLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 546.0
+offset_top = 196.0
+offset_right = 690.0
+offset_bottom = 232.0
+text = "???"
+label_settings = SubResource("LabelSettings_fkck3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_i4i37")
+volume_db = -10.0
+autoplay = true
+parameters/looping = true

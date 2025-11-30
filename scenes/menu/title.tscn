@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=3 uid="uid://nei71j1u8hsw"]
+
+[ext_resource type="Script" uid="uid://cx3csq531wvu8" path="res://scripts/menu/title.gd" id="1_jd0r5"]
+[ext_resource type="Texture2D" uid="uid://c4mfcs1r1domd" path="res://assets/img/IMG_5380.png" id="1_rjer4"]
+[ext_resource type="FontFile" uid="uid://bvacfqo8p773s" path="res://assets/fonts/Alkhemikal.ttf" id="2_1c2hr"]
+[ext_resource type="AudioStream" uid="uid://etywj570ujgs" path="res://assets/img/xia.field - Main_Menu 2025-11-30 10_15.mp3" id="3_nlc08"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nlc08"]
+font = ExtResource("2_1c2hr")
+font_size = 48
+
+[sub_resource type="Theme" id="Theme_jd0r5"]
+default_font = ExtResource("2_1c2hr")
+default_font_size = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jn0s6"]
+bg_color = Color(0.83517945, 0.51043487, 0.247249, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.50808686, 0.2897141, 0.105318375, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 30.0
+expand_margin_top = 5.0
+expand_margin_right = 30.0
+expand_margin_bottom = 5.0
+anti_aliasing = false
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jd0r5")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -82.0
+offset_top = -62.0
+offset_right = 1196.0
+offset_bottom = 745.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -206.0
+offset_top = 84.0
+offset_right = 1177.2487
+offset_bottom = 737.99994
+texture = ExtResource("1_rjer4")
+expand_mode = 5
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 57.0
+offset_right = 354.0
+offset_bottom = 105.0
+text = "Dungeon Delvers"
+label_settings = SubResource("LabelSettings_nlc08")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 120.0
+offset_right = 250.0
+offset_bottom = 152.0
+theme = SubResource("Theme_jd0r5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jn0s6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jn0s6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jn0s6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jn0s6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jn0s6")
+action_mode = 0
+text = "Start"
+
+[node name="CreditsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 167.0
+offset_right = 250.0
+offset_bottom = 199.0
+theme = SubResource("Theme_jd0r5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jn0s6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jn0s6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jn0s6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jn0s6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jn0s6")
+action_mode = 0
+text = "Credits
+"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 214.0
+offset_right = 250.0
+offset_bottom = 246.0
+theme = SubResource("Theme_jd0r5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_jn0s6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jn0s6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jn0s6")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_jn0s6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jn0s6")
+action_mode = 0
+text = "Quit
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nlc08")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
