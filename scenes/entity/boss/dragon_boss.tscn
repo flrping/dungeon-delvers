@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgovkp2p1jhln"]
+
+[ext_resource type="Texture2D" uid="uid://dqr2jlegtukka" path="res://assets/sprites/Boss.png" id="1_b4jxy"]
+[ext_resource type="PackedScene" uid="uid://b4ifjggqdh5wm" path="res://scenes/frames/boss_left_arm_frames.tscn" id="2_ehk6x"]
+[ext_resource type="PackedScene" uid="uid://c6ftpnht8pwbn" path="res://scenes/frames/boss_right_arm_frames.tscn" id="3_s6ssx"]
+[ext_resource type="PackedScene" uid="uid://dtig86uh7rluv" path="res://scenes/frames/boss_head_frames.tscn" id="4_s6ssx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d68rd"]
+atlas = ExtResource("1_b4jxy")
+region = Rect2(416.24597, 0, 293.27808, 145)
+
+[node name="DragonBoss" type="Node2D"]
+scale = Vector2(2.5, 2.5)
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(13, -33)
+texture = SubResource("AtlasTexture_d68rd")
+
+[node name="BossLeftArmFrames" parent="." instance=ExtResource("2_ehk6x")]
+position = Vector2(-60, 47)
+
+[node name="BossRightArmFrames" parent="." instance=ExtResource("3_s6ssx")]
+position = Vector2(54.5, 48.5)
+
+[node name="BossHeadFrames" parent="." instance=ExtResource("4_s6ssx")]
+position = Vector2(-2.4, -50)
+animation = &"look_center"

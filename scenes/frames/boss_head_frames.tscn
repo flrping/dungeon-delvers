@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtig86uh7rluv"]
+
+[ext_resource type="Texture2D" uid="uid://dqr2jlegtukka" path="res://assets/sprites/Boss.png" id="1_aij5v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aij5v"]
+atlas = ExtResource("1_aij5v")
+region = Rect2(57, 0, 37, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omu3b"]
+atlas = ExtResource("1_aij5v")
+region = Rect2(201, 0, 37, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vg4m"]
+atlas = ExtResource("1_aij5v")
+region = Rect2(5, 0, 55, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uhq3"]
+atlas = ExtResource("1_aij5v")
+region = Rect2(149, 0, 55, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu625"]
+atlas = ExtResource("1_aij5v")
+region = Rect2(91, 0, 55, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uh27d"]
+atlas = ExtResource("1_aij5v")
+region = Rect2(235, 0, 55, 49)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ubrji"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aij5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omu3b")
+}],
+"loop": true,
+"name": &"look_center",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vg4m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uhq3")
+}],
+"loop": true,
+"name": &"look_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu625")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uh27d")
+}],
+"loop": true,
+"name": &"look_right",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"roar",
+"speed": 5.0
+}]
+
+[node name="BossHeadFrames" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ubrji")
+animation = &"look_right"

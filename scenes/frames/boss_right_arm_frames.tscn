@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6ftpnht8pwbn"]
+
+[ext_resource type="Texture2D" uid="uid://dqr2jlegtukka" path="res://assets/sprites/Boss.png" id="1_08s13"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1yja"]
+atlas = ExtResource("1_08s13")
+region = Rect2(71, 62, 71, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go00g"]
+atlas = ExtResource("1_08s13")
+region = Rect2(71, 103, 71, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8ne2u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1yja")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go00g")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[node name="BossRightArmFrames" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8ne2u")
+animation = &"down"
