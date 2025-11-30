@@ -67,12 +67,15 @@ func _check_damage_sources(_delta: Variant, hurtbox: Area2D) -> void:
 		return
 	
 	for source in hurtbox.get_overlapping_areas():
-		if source.is_in_group(damage_source):
+		if source.is_in_group(damage_source) and not source.is_in_group("Player"):
+			var knockback_dir: Vector2 = (global_position - source.global_position).normalized()
+			_take_damage(source, 1.0, knockback_dir)
+			i_frame_timer = i_frame / 1000.0
+		elif source.is_in_group(damage_source) and source.is_in_group("Player"):
 			var knockback_dir: Vector2 = (global_position - source.global_position).normalized()
 			_take_damage(source, 10.0, knockback_dir)
 			i_frame_timer = i_frame / 1000.0
-			return
-
+			
 # Handles taking damage and death.
 func _take_damage(source: Variant, amount: float, knockback_dir: Vector2) -> void:
 	velocity = knockback_dir * 250.0

@@ -39,10 +39,13 @@ func _apply_i_frames(delta):
 func _check_damage_sources(_delta) -> void:
 	if i_frame_timer > 0.0:
 		return
+		
+	if Global.is_cutscene_playing:
+		return
 	
 	for source in hurtbox.get_overlapping_areas():
 		if source.is_in_group("EnemyDamageSource"):
-			_take_damage(5.0)
+			_take_damage(1.0)
 			i_frame_timer = i_frame / 1000.0
 			return
 
