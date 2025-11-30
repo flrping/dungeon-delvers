@@ -2,8 +2,7 @@ extends CharacterBody2D
 
 class_name Player
 
-const SPEED = 300.0
-
+@export var speed = 300.0
 @export var max_health = 100.0
 @export var current_health = 100.0
 @export var i_frame = 800.0

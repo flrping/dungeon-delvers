@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name Trident
 
 var player: RyonPlayer
-var speed: float = 200.0
+var speed: float = 800.0
 var is_coming_home: bool = false
 
 @onready var area = $Hitbox

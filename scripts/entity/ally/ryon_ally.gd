@@ -1,9 +1,11 @@
 extends Entity
 
-class_name SoldierAlly
+class_name RyonAlly
 
-const ATTACK_DISTANCE := 12.0
+const ATTACK_DISTANCE := 200.0
 
+@onready var spell := load("res://scenes/entity/projectile/ryon_ally_spell.tscn")
+@onready var frames: AnimatedSprite2D = $Frames
 @onready var detection: Area2D = $Detection
 @onready var hurtbox: Area2D = $Hurtbox
 
@@ -12,12 +14,12 @@ var last_known_target_pos: Vector2
 var can_refresh_target = true
 
 func _ready() -> void:
-	speed = 225.0
+	speed = 185.0
 	
 	states = {
 		"idle": preload("res://scripts/entity/states/entity_idle_state.gd").new(),
 		"wander": preload("res://scripts/entity/states/entity_wander_state.gd").new(),
-		"hunt": preload("res://scripts/entity/states/entity_hunt_state.gd").new()
+		"hunt": preload("res://scripts/entity/states/ally/ryon_ally_hunt_state.gd").new()
 	}
 	
 	for _state in states.values():
@@ -32,12 +34,24 @@ func _ready() -> void:
 	
 	navigation.target_position = global_position
 
-func _physics_process(delta: float) -> void:		
+func _physics_process(delta: float) -> void:
 	if not state:
 		return
 		
 	if assigned_area == null:
 		return
+		
+	match facing_direction:
+		Vector2.UP:
+			frames.play("walk_up")
+		Vector2.DOWN:
+			frames.play("walk_down")
+		Vector2.LEFT:
+			frames.play("walk_side")
+			frames.flip_h = true
+		Vector2.RIGHT:
+			frames.play("walk_side")
+			frames.flip_h = false
 	
 	_check_for_targets()
 	_apply_i_frames(delta)

@@ -43,7 +43,7 @@ func _spawn_trident():
 	var new_trident = player.trident.instantiate()
 	new_trident.name = "RyonTrident"
 	new_trident.global_position = player.global_position
-	new_trident.velocity = dir * 300
+	new_trident.velocity = dir * 800
 	new_trident.player = player
 	
 	player.get_parent().add_child(new_trident)

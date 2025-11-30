@@ -1,6 +1,6 @@
 extends Entity
 
-class_name SeekerEnemy
+class_name Ally
 
 const ATTACK_DISTANCE := 12.0
 
@@ -10,10 +10,10 @@ const ATTACK_DISTANCE := 12.0
 
 var target: Node2D
 var last_known_target_pos: Vector2
-var can_refresh_target: bool = true
+var can_refresh_target = true
 
 func _ready() -> void:
-	speed = 150.0
+	speed = 185.0
 	
 	states = {
 		"idle": preload("res://scripts/entity/states/entity_idle_state.gd").new(),
@@ -31,7 +31,6 @@ func _ready() -> void:
 		max_health = max_health * 2
 		speed = speed * 0.75
 	
-	frames.play("walk_down")
 	navigation.target_position = global_position
 
 func _physics_process(delta: float) -> void:
@@ -59,14 +58,14 @@ func _physics_process(delta: float) -> void:
 	
 	state.physics_update(delta)
 
-func _check_for_targets() -> void:
-	var found: bool = false
+func _check_for_targets():
+	var found = false
 	for detected in detection.get_overlapping_bodies():
-		if detected.is_in_group("Ally") and can_refresh_target:
+		if detected.is_in_group("Enemy") and can_refresh_target:
 			target = detected
 			found = true
 			_set_state("hunt")
 			return
-			
-	if !found:
+	
+	if not found:
 		target = null

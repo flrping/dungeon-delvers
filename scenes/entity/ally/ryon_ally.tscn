@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://d0wnncnxuhdtv"]
+[gd_scene load_steps=7 format=3 uid="uid://dxh3cbirrkd0r"]
 
-[ext_resource type="Script" uid="uid://c7u4gijyo858m" path="res://scripts/entity/ally/soldier_ally.gd" id="1_5qds1"]
+[ext_resource type="Script" uid="uid://c88u7ow2c5unj" path="res://scripts/entity/ally/ryon_ally.gd" id="1_he3f6"]
+[ext_resource type="PackedScene" uid="uid://nlwl82e5gwwm" path="res://scenes/frames/ryon_ally_frames.tscn" id="2_he3f6"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5qds1"]
-radius = 7.0
-height = 18.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srybl"]
+radius = 3.5
+height = 9.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5qds1"]
 
@@ -13,14 +14,14 @@ height = 18.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_5qds1"]
 radius = 62.03225
 
-[node name="SoldierAlly" type="CharacterBody2D" groups=["Ally"]]
+[node name="RyonAlly" type="CharacterBody2D" groups=["Ally"]]
 scale = Vector2(2, 2)
 collision_layer = 8
 collision_mask = 7
-script = ExtResource("1_5qds1")
+script = ExtResource("1_he3f6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_5qds1")
+shape = SubResource("CapsuleShape2D_srybl")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 8
@@ -49,9 +50,9 @@ shape = SubResource("CircleShape2D_5qds1")
 debug_color = Color(0.66399616, 0.5079127, 0.20244181, 0.41960785)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 20.0
+avoidance_layers = 2
+avoidance_mask = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Frames" parent="." instance=ExtResource("2_he3f6")]

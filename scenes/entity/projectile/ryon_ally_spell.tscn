@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://brhxx2wjww4ix"]
+[gd_scene load_steps=5 format=3 uid="uid://dslutu358fo3b"]
 
-[ext_resource type="Script" uid="uid://cbd42vxck1l3m" path="res://scripts/entity/projectiles/ryon_trident.gd" id="1_mj7wc"]
-[ext_resource type="PackedScene" uid="uid://05xmmhorhl8x" path="res://scenes/frames/trident_frames.tscn" id="2_li5kv"]
+[ext_resource type="Script" uid="uid://bbf4xwx7bge37" path="res://scripts/entity/projectiles/ryon_ally_spell.gd" id="1_oe24u"]
+[ext_resource type="PackedScene" uid="uid://xf616vpmuq6s" path="res://scenes/frames/ryon_ally_projectile_frames.tscn" id="2_oe24u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mj7wc"]
 size = Vector2(8, 28.5)
@@ -10,19 +10,19 @@ size = Vector2(8, 28.5)
 radius = 5.5
 height = 40.0
 
-[node name="RyonTrident" type="CharacterBody2D"]
-scale = Vector2(2.5, 2.5)
-script = ExtResource("1_mj7wc")
-
-[node name="Frames" parent="." instance=ExtResource("2_li5kv")]
-rotation = 1.5707964
-frame_progress = 0.57240224
+[node name="RyonAllySpell" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_oe24u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.75, -7.649493e-08)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_mj7wc")
 disabled = true
+
+[node name="Frames" parent="." instance=ExtResource("2_oe24u")]
+rotation = 1.5707964
+autoplay = "default"
 
 [node name="Hitbox" type="Area2D" parent="." groups=["AllyDamageSource"]]
 

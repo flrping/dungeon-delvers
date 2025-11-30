@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bpi5syyxmnsai" path="res://scenes/frames/seeker_frames.tscn" id="2_pa7o1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srybl"]
-radius = 5.0
-height = 16.0
+radius = 3.5
+height = 9.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1e1h"]
 
@@ -50,5 +50,6 @@ shape = SubResource("CircleShape2D_h53ut")
 debug_color = Color(0.66399616, 0.5079127, 0.20244181, 0.41960785)
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
 
 [node name="Frames" parent="." instance=ExtResource("2_pa7o1")]

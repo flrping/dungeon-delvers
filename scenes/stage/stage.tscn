@@ -122,31 +122,37 @@ rotation = 1.5707964
 
 [node name="SearchParty" parent="." node_paths=PackedStringArray("target_room") instance=ExtResource("11_cwi0x")]
 position = Vector2(435, 162)
+entity_limit = 5
 in_control = true
 target_room = NodePath("../Central Intersection East")
 
 [node name="Party" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(-484, 153)
+entity_limit = 8
 in_control = true
 
 [node name="Party2" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(54, 476)
+entity_limit = 8
 in_control = true
 
 [node name="Party3" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(-237, 360)
+entity_limit = 8
 in_control = true
 
 [node name="Party4" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(356, 157)
+entity_limit = 8
 in_control = true
 
 [node name="Party5" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(409, -147)
+entity_limit = 8
 in_control = true
 
 [node name="Party6" parent="." instance=ExtResource("12_lrsvv")]
-position = Vector2(568, -1167)
+position = Vector2(572, -1192)
 
 [node name="Party7" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(-993, -1183)
@@ -176,4 +182,4 @@ position = Vector2(1768, -5029)
 position = Vector2(1773, -4754)
 
 [node name="MeredithPlayer" parent="." instance=ExtResource("3_a221a")]
-position = Vector2(158, 276)
+position = Vector2(126, 301)

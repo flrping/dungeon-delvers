@@ -3,8 +3,14 @@ extends Node2D
 class_name SearchParty
 
 @export var entity_limit = 10
-@export var enemy_entity_paths: Array[String] = ["res://scenes/entity/enemy/seeker_enemy.tscn", "res://scenes/entity/enemy/slime_enemy.tscn"]
-@export var ally_entity_paths: Array[String] = ["res://scenes/entity/ally/soldier_ally.tscn"]
+@export var enemy_entity_paths: Array[String] = [
+	"res://scenes/entity/enemy/seeker_enemy.tscn", 
+	"res://scenes/entity/enemy/slime_enemy.tscn",
+	"res://scenes/entity/enemy/skeleton_enemy.tscn",
+	"res://scenes/entity/enemy/goblin_enemy.tscn",
+	"res://scenes/entity/enemy/seer_enemy.tscn"
+]
+@export var ally_entity_paths: Array[String] = ["res://scenes/entity/ally/" + Global.player_name.to_lower() + "_ally.tscn"]
 @export var in_control = false
 @export var target_room: Spawner
 

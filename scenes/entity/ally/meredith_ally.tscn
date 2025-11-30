@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://br4ggh14i6ijy"]
+
+[ext_resource type="Script" uid="uid://c7u4gijyo858m" path="res://scripts/entity/ally/ally.gd" id="1_5kj73"]
+[ext_resource type="PackedScene" uid="uid://cstp7ix6i1od6" path="res://scenes/frames/meredith_ally_frames.tscn" id="2_0jate"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srybl"]
+radius = 3.5
+height = 9.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qds1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nrjc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5qds1"]
+radius = 62.03225
+
+[node name="MeredithAlly" type="CharacterBody2D" groups=["Ally"]]
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 7
+script = ExtResource("1_5kj73")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_srybl")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_5qds1")
+debug_color = Color(0.8589048, 0.26886365, 0.6241412, 0.41960785)
+
+[node name="Hitbox" type="Area2D" parent="." groups=["AllyDamageSource"]]
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_7nrjc")
+debug_color = Color(0.8589048, 0.26886365, 0.6241412, 0.41960785)
+
+[node name="Detection" type="Area2D" parent="."]
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_5qds1")
+debug_color = Color(0.66399616, 0.5079127, 0.20244181, 0.41960785)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+avoidance_layers = 2
+avoidance_mask = 2
+
+[node name="Frames" parent="." instance=ExtResource("2_0jate")]

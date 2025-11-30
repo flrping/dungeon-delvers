@@ -8,6 +8,8 @@ var has_spawned = false
 var is_recovering = false
 
 func _ready() -> void:
+	speed = 250.0
+	
 	states = {
 		"idle": preload("res://scripts/player/states/player_idle_state.gd").new(),
 		"move": preload("res://scripts/player/states/player_move_state.gd").new(),

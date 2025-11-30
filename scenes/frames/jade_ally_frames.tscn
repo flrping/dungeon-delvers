@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://djpurrl4f6tkf"]
+
+[ext_resource type="Texture2D" uid="uid://c5a1so62y3hk8" path="res://assets/sprites/jadeally.png" id="1_qpml7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dx1l"]
+atlas = ExtResource("1_qpml7")
+region = Rect2(0, 0, 17, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3g2b"]
+atlas = ExtResource("1_qpml7")
+region = Rect2(17, 0, 17, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6yfr"]
+atlas = ExtResource("1_qpml7")
+region = Rect2(34, 0, 17, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goktt"]
+atlas = ExtResource("1_qpml7")
+region = Rect2(51, 0, 17, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76gje"]
+atlas = ExtResource("1_qpml7")
+region = Rect2(68, 0, 17, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5hti"]
+atlas = ExtResource("1_qpml7")
+region = Rect2(85, 0, 17, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nm32q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dx1l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p3g2b")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6yfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goktt")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76gje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5hti")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[node name="Frames" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_nm32q")
+animation = &"walk_up"

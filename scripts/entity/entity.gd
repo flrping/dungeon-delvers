@@ -8,17 +8,17 @@ class_name Entity
 @export var i_frame_timer: float = 0.0
 @export var min_idle_time: float = 3.0
 @export var max_idle_time: float = 10.0
-@export var search_time: float = 5.0
+@export var attack_time: float = 3.0
 @export var damage_source: String = "EnemyDamageSource"
 @export var job: String = "none"
-@export var speed: float = 250.0
+@export var speed: float = 150.0
 
 @onready var navigation := $NavigationAgent2D
 
 var assigned_area: CollisionShape2D
 var idle_time: float = 0.0
 var idle_timer: float = 0.0
-var search_timer: float = 0.0
+var attack_timer: float = 0.0
 var jobs: Array[Variant] = ["none", "captain", "party"]
 
 var state: EntityState

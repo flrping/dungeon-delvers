@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://xf616vpmuq6s"]
+
+[ext_resource type="Texture2D" uid="uid://dsnrhv4srpxny" path="res://assets/sprites/ryonally.png" id="1_6kenv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdgqs"]
+atlas = ExtResource("1_6kenv")
+region = Rect2(153, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qa7ih"]
+atlas = ExtResource("1_6kenv")
+region = Rect2(170, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h38w"]
+atlas = ExtResource("1_6kenv")
+region = Rect2(187, 0, 17, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7b4gr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdgqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qa7ih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h38w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Frames" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_7b4gr")
+frame_progress = 0.71266824

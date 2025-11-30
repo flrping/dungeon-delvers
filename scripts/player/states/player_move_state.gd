@@ -13,7 +13,7 @@ func physics_update(_delta):
 		player._set_state("idle")
 		return
 		
-	player.velocity = Vector2(x, y).normalized() * player.SPEED
+	player.velocity = Vector2(x, y).normalized() * player.speed
 	if abs(x) > 0:
 		player.frames.play("walk_right")
 		player.frames.flip_h = x < 0

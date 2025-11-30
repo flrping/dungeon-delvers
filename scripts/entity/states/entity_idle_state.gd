@@ -2,7 +2,7 @@ extends EntityState
 
 class_name EntityIdleState
 
-func enter(prev_state: EntityState) -> void:
+func enter(_prev_state: EntityState) -> void:
 	entity.idle_timer = 0.0
 	entity.idle_time = randf_range(entity.min_idle_time, entity.max_idle_time)
 

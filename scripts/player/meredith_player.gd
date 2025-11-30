@@ -8,6 +8,8 @@ class_name MeredithPlayer
 @onready var attack_hitbox_right: Area2D  = $AttackRightHitbox
 
 func _ready() -> void:
+	speed = 250.0
+	
 	states = {
 		"idle": preload("res://scripts/player/states/player_idle_state.gd").new(),
 		"move": preload("res://scripts/player/states/player_move_state.gd").new(),

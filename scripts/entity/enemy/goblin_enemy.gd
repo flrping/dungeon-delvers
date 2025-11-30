@@ -13,7 +13,7 @@ var last_known_target_pos: Vector2
 var can_refresh_target: bool = true
 
 func _ready() -> void:
-	speed = 250.0
+	speed = 175.0
 	
 	states = {
 		"idle": preload("res://scripts/entity/states/entity_idle_state.gd").new(),

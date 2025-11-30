@@ -26,10 +26,10 @@ func _on_enemy_death(entity: Entity, _source: Variant) -> void:
 	tracked_entites.erase(entity)
 	
 	if entity.job == "captain":
-		capture_progress += 25
+		capture_progress += 55
 		is_captain_dead = true
 	else:
-		capture_progress += 2
+		capture_progress += 10
 		
 	if capture_progress >= 100.0 and is_captain_dead:
 		in_control = true
@@ -45,10 +45,10 @@ func _on_ally_death(entity: Entity, _source: Variant) -> void:
 		return
 	
 	if entity.job == "captain":
-		capture_progress += 25
+		capture_progress += 55
 		is_captain_dead = true
 	else:
-		capture_progress += 2
+		capture_progress += 10
 		
 	if capture_progress >= 100.0 and is_captain_dead:
 		in_control = false

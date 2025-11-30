@@ -2,32 +2,56 @@
 
 [ext_resource type="Texture2D" uid="uid://blkjr7oogtb2f" path="res://assets/sprites/seer.png" id="1_4so0e"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tiin2"]
-atlas = ExtResource("1_4so0e")
-region = Rect2(1, 0, 17, 18)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntnwl"]
 atlas = ExtResource("1_4so0e")
 region = Rect2(18, 0, 17, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_oleoo"]
-atlas = ExtResource("1_4so0e")
-region = Rect2(36, 0, 17, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vrh28"]
-atlas = ExtResource("1_4so0e")
-region = Rect2(53, 0, 17, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_72m2c"]
-atlas = ExtResource("1_4so0e")
-region = Rect2(74, 0, 17, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nrifk"]
 atlas = ExtResource("1_4so0e")
 region = Rect2(91, 0, 17, 18)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrh28"]
+atlas = ExtResource("1_4so0e")
+region = Rect2(53, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tiin2"]
+atlas = ExtResource("1_4so0e")
+region = Rect2(1, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72m2c"]
+atlas = ExtResource("1_4so0e")
+region = Rect2(74, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oleoo"]
+atlas = ExtResource("1_4so0e")
+region = Rect2(36, 0, 17, 18)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_nm32q"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ntnwl")
+}],
+"loop": true,
+"name": &"attack_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrifk")
+}],
+"loop": true,
+"name": &"attack_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrh28")
+}],
+"loop": true,
+"name": &"attack_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tiin2")
@@ -41,10 +65,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_oleoo")
+"texture": SubResource("AtlasTexture_72m2c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vrh28")
+"texture": SubResource("AtlasTexture_nrifk")
 }],
 "loop": true,
 "name": &"walk_side",
@@ -52,10 +76,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_72m2c")
+"texture": SubResource("AtlasTexture_oleoo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nrifk")
+"texture": SubResource("AtlasTexture_vrh28")
 }],
 "loop": true,
 "name": &"walk_up",

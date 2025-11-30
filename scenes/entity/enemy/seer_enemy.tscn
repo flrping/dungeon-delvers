@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bj6aydc20wrnv"]
+[gd_scene load_steps=7 format=3 uid="uid://dj53wxiakc0xc"]
 
-[ext_resource type="Script" uid="uid://0quth5vkehes" path="res://scripts/entity/enemy/goblin_enemy.gd" id="1_xa3nf"]
-[ext_resource type="PackedScene" uid="uid://xrfu2eycnk4p" path="res://scenes/frames/goblin_frames.tscn" id="2_xa3nf"]
+[ext_resource type="Script" uid="uid://b5gbmcwe56clp" path="res://scripts/entity/enemy/seer_enemy.gd" id="1_pa3bo"]
+[ext_resource type="PackedScene" uid="uid://cbg85ycil1vd2" path="res://scenes/frames/seer_frames.tscn" id="2_pa3bo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srybl"]
 radius = 3.5
@@ -14,11 +14,11 @@ height = 9.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_if6ge"]
 radius = 140.70004
 
-[node name="GoblinEnemy" type="CharacterBody2D" groups=["Enemy"]]
+[node name="SeerEnemy" type="CharacterBody2D" groups=["Enemy"]]
 scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 11
-script = ExtResource("1_xa3nf")
+script = ExtResource("1_pa3bo")
 damage_source = "AllyDamageSource"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -26,7 +26,7 @@ shape = SubResource("CapsuleShape2D_srybl")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 4
-collision_mask = 15
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("RectangleShape2D_l1e1h")
@@ -34,7 +34,7 @@ debug_color = Color(0.8589048, 0.26886365, 0.6241412, 0.41960785)
 
 [node name="Hitbox" type="Area2D" parent="." groups=["EnemyDamageSource"]]
 collision_layer = 4
-collision_mask = 15
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_srybl")
@@ -52,4 +52,4 @@ debug_color = Color(0.66399616, 0.5079127, 0.20244181, 0.41960785)
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
 
-[node name="Frames" parent="." instance=ExtResource("2_xa3nf")]
+[node name="Frames" parent="." instance=ExtResource("2_pa3bo")]

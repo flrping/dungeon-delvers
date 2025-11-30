@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvwdnuk5xyll8"]
+
+[ext_resource type="Script" uid="uid://b7soqtugvex8k" path="res://scripts/entity/projectiles/seer_spell.gd" id="1_fo71b"]
+[ext_resource type="PackedScene" uid="uid://c1tadakhcmr0g" path="res://scenes/frames/crescent_frames.tscn" id="2_fo71b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fo71b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jvdgw"]
+size = Vector2(14.999999, 17)
+
+[node name="SeerSpell" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_fo71b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_fo71b")
+disabled = true
+
+[node name="Frames" parent="." instance=ExtResource("2_fo71b")]
+
+[node name="Hitbox" type="Area2D" parent="." groups=["EnemyDamageSource"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, 2.3841858e-07)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_jvdgw")
