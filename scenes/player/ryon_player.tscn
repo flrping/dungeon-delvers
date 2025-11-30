@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bh8dlmse52kkc"]
+[gd_scene load_steps=8 format=3 uid="uid://bh8dlmse52kkc"]
 
 [ext_resource type="Script" uid="uid://dtc0u3oeqed0i" path="res://scripts/player/ryon_player.gd" id="1_4akyg"]
 [ext_resource type="PackedScene" uid="uid://d1k22io5wa57j" path="res://scenes/frames/ryon_frames.tscn" id="2_4akyg"]
 [ext_resource type="PackedScene" uid="uid://cktryo5wbcouh" path="res://scenes/ui/player_ui.tscn" id="3_iapgb"]
+[ext_resource type="AudioStream" uid="uid://c7qkqebcdlwnr" path="res://assets/tracks/xia.field - Level.mp3" id="4_iapgb"]
+[ext_resource type="Script" uid="uid://bcl6uk7o05hr7" path="res://scripts/player/audio.gd" id="5_qvv5f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1obkj"]
 radius = 6.0
@@ -33,3 +35,15 @@ debug_color = Color(0.85882354, 0.27058825, 0.62352943, 0.41960785)
 animation = &"idle"
 
 [node name="PlayerUI" parent="." instance=ExtResource("3_iapgb")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_iapgb")
+volume_db = -10.0
+autoplay = true
+script = ExtResource("5_qvv5f")
+
+[node name="Timer" type="Timer" parent="AudioStreamPlayer"]
+wait_time = 104.0
+autostart = true
+
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]

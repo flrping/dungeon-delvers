@@ -2,6 +2,8 @@ extends PlayerState
 
 class_name MeredithAttackState
 
+@onready var swing: AudioStreamPlayer = player.get_node("SwordSwing")
+
 func enter(_prev_state):
 	var animation := "attack_down"
 	
@@ -24,6 +26,8 @@ func enter(_prev_state):
 	
 	shape_to_enable.disabled = false
 	player.frames.play(animation)
+	swing.pitch_scale = randf_range(0.70, 1.0)
+	swing.play()
 	_attack_process()
 
 func _attack_process() -> void:

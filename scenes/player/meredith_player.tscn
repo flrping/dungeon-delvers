@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://2oam16boclrl"]
+[gd_scene load_steps=13 format=3 uid="uid://2oam16boclrl"]
 
 [ext_resource type="Script" uid="uid://dealg7puqnyqj" path="res://scripts/player/meredith_player.gd" id="1_l8cg3"]
 [ext_resource type="PackedScene" uid="uid://7cg7trfrr6n3" path="res://scenes/frames/meredith_frames.tscn" id="2_gdab3"]
 [ext_resource type="PackedScene" uid="uid://cktryo5wbcouh" path="res://scenes/ui/player_ui.tscn" id="3_l8cg3"]
+[ext_resource type="AudioStream" uid="uid://c7qkqebcdlwnr" path="res://assets/tracks/xia.field - Level.mp3" id="4_st3he"]
+[ext_resource type="Script" uid="uid://bcl6uk7o05hr7" path="res://scripts/player/audio.gd" id="5_31i5n"]
+[ext_resource type="AudioStream" uid="uid://ubj1xy03jhkk" path="res://assets/sfx/sword.wav" id="6_jsjuq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1obkj"]
 radius = 6.0
@@ -41,7 +44,7 @@ debug_color = Color(0.85882354, 0.27058825, 0.62352943, 0.41960785)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="AttackUpHitbox" type="Area2D" parent="." groups=["AllyDamageSource"]]
+[node name="AttackUpHitbox" type="Area2D" parent="." groups=["AllyDamageSource", "Player"]]
 collision_layer = 2
 collision_mask = 15
 
@@ -50,7 +53,7 @@ position = Vector2(0, -20)
 shape = SubResource("RectangleShape2D_1obkj")
 disabled = true
 
-[node name="AttackDownHitbox" type="Area2D" parent="." groups=["AllyDamageSource"]]
+[node name="AttackDownHitbox" type="Area2D" parent="." groups=["AllyDamageSource", "Player"]]
 collision_layer = 2
 collision_mask = 15
 
@@ -59,7 +62,7 @@ position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_t0tph")
 disabled = true
 
-[node name="AttackRightHitbox" type="Area2D" parent="." groups=["AllyDamageSource"]]
+[node name="AttackRightHitbox" type="Area2D" parent="." groups=["AllyDamageSource", "Player"]]
 collision_layer = 2
 collision_mask = 15
 
@@ -68,7 +71,7 @@ position = Vector2(20, 0)
 shape = SubResource("RectangleShape2D_l8cg3")
 disabled = true
 
-[node name="AttackLeftHitbox" type="Area2D" parent="." groups=["AllyDamageSource"]]
+[node name="AttackLeftHitbox" type="Area2D" parent="." groups=["AllyDamageSource", "Player"]]
 collision_layer = 2
 collision_mask = 15
 
@@ -81,3 +84,19 @@ disabled = true
 animation = &"idle"
 
 [node name="PlayerUI" parent="." instance=ExtResource("3_l8cg3")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_st3he")
+volume_db = -10.0
+autoplay = true
+script = ExtResource("5_31i5n")
+
+[node name="Timer" type="Timer" parent="AudioStreamPlayer"]
+wait_time = 104.0
+autostart = true
+
+[node name="SwordSwing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_jsjuq")
+volume_db = -30.0
+
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]

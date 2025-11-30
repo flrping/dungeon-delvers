@@ -24,7 +24,7 @@ rotation = 1.5707964
 shape = SubResource("RectangleShape2D_mj7wc")
 disabled = true
 
-[node name="Hitbox" type="Area2D" parent="." groups=["AllyDamageSource"]]
+[node name="Hitbox" type="Area2D" parent="." groups=["AllyDamageSource", "Player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 rotation = 1.5707964

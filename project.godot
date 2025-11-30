@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Bus="*res://scripts/Bus.gd"
 Global="*res://scripts/Global.gd"
+SoundBus="*res://scripts/SoundBus.gd"
 
 [display]
 

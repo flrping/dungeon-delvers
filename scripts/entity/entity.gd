@@ -14,6 +14,7 @@ class_name Entity
 @export var speed: float = 150.0
 
 @onready var navigation := $NavigationAgent2D
+@onready var enemy_hit := preload("res://assets/sfx/HitEnemy.wav")
 
 var assigned_area: CollisionShape2D
 var idle_time: float = 0.0
@@ -68,16 +69,18 @@ func _check_damage_sources(_delta: Variant, hurtbox: Area2D) -> void:
 	for source in hurtbox.get_overlapping_areas():
 		if source.is_in_group(damage_source):
 			var knockback_dir: Vector2 = (global_position - source.global_position).normalized()
-			_take_damage(10.0, knockback_dir)
+			_take_damage(source, 10.0, knockback_dir)
 			i_frame_timer = i_frame / 1000.0
 			return
 
 # Handles taking damage and death.
-func _take_damage(amount: float, knockback_dir: Vector2) -> void:
+func _take_damage(source: Variant, amount: float, knockback_dir: Vector2) -> void:
 	velocity = knockback_dir * 250.0
 	current_health -= amount
 	
-	Bus.emit_signal("on_enemy_damage", self, null)
+	SoundBus._queue_sound("enemy_hit", enemy_hit, position)
+	
+	Bus.emit_signal("on_enemy_damage", self, source)
 	if current_health <= 0:
-		Bus.emit_signal("on_enemy_death", self, null)
+		Bus.emit_signal("on_enemy_death", self, source)
 		queue_free()

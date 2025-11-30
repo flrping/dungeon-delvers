@@ -2,6 +2,8 @@ extends EntityState
 
 class_name YellowSlimeHuntState
 
+@onready var explosion := preload("res://assets/sfx/explosion.wav")
+
 const TICK_TIME: float = 1.0
 
 var move_wait_timer: float = 0.0
@@ -29,8 +31,9 @@ func physics_update(delta: float) -> void:
 		
 		if tick_timer > TICK_TIME:
 			entity.frames.play("yellow_explode")
+			SoundBus._queue_sound("explosion", explosion, entity.position)
 			await entity.frames.animation_finished
-			entity._take_damage(entity.max_health, Vector2.ZERO)
+			entity._take_damage(self, entity.max_health, Vector2.ZERO)
 		return
 
 	var target_pos: Vector2 = entity.target.global_position

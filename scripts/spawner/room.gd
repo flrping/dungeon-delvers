@@ -95,6 +95,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 		progress_bar.value = 100 - capture_progress
 		progress_bar.visible = true
+		
+		Bus.emit_signal("on_room_enter", self)
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):	
@@ -107,3 +109,5 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		
 		spawner_name.visible = false
 		progress_bar.visible = false
+		
+		Bus.emit_signal("on_room_exit", self)

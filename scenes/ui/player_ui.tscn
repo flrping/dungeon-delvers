@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cktryo5wbcouh"]
+[gd_scene load_steps=5 format=3 uid="uid://cktryo5wbcouh"]
 
 [ext_resource type="LabelSettings" uid="uid://dmsbms5e6jsi" path="res://scenes/fonts/pixel_font_settings.tres" id="1_jg20v"]
 [ext_resource type="PackedScene" uid="uid://c62mcfmsi7tf6" path="res://scenes/ui/progress_bar.tscn" id="1_s4ogp"]
+[ext_resource type="Script" uid="uid://s8ejxp45bl5c" path="res://scripts/kill_label.gd" id="2_fatqr"]
 [ext_resource type="Script" uid="uid://fq8wih7mrtar" path="res://scripts/heart_group.gd" id="3_jg20v"]
 
 [node name="PlayerUI" type="CanvasLayer"]
@@ -37,6 +38,7 @@ offset_right = 1047.0
 offset_bottom = 620.0
 text = "0"
 label_settings = ExtResource("1_jg20v")
+script = ExtResource("2_fatqr")
 
 [node name="Room Name Label" type="Label" parent="."]
 visible = false
@@ -59,10 +61,13 @@ scale = Vector2(3, 3)
 
 [node name="Heart Group" type="Control" parent="."]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
 offset_top = 16.0
 offset_right = -1096.0
 offset_bottom = -592.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("3_jg20v")
