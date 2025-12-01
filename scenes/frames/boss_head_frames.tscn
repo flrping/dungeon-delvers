@@ -1,6 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtig86uh7rluv"]
+[gd_scene load_steps=13 format=3 uid="uid://dtig86uh7rluv"]
 
 [ext_resource type="Texture2D" uid="uid://dqr2jlegtukka" path="res://assets/sprites/Boss.png" id="1_aij5v"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_aij5v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aij5v"]
 atlas = ExtResource("1_aij5v")
@@ -25,6 +27,18 @@ region = Rect2(91, 0, 55, 49)
 [sub_resource type="AtlasTexture" id="AtlasTexture_uh27d"]
 atlas = ExtResource("1_aij5v")
 region = Rect2(235, 0, 55, 49)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b58w4"]
+atlas = ExtResource("1_aij5v")
+region = Rect2(361, 0, 38, 66)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp67l"]
+atlas = ExtResource("1_aij5v")
+region = Rect2(297, 0, 52, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l10yo"]
+atlas = ExtResource("1_aij5v")
+region = Rect2(408, 0, 53, 55)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ubrji"]
 animations = [{
@@ -65,8 +79,33 @@ animations = [{
 "loop": true,
 "name": &"roar",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b58w4")
+}],
+"loop": true,
+"name": &"shadow_center",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp67l")
+}],
+"loop": true,
+"name": &"shadow_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l10yo")
+}],
+"loop": true,
+"name": &"shadow_right",
+"speed": 5.0
 }]
 
 [node name="BossHeadFrames" type="AnimatedSprite2D"]
+material = SubResource("CanvasItemMaterial_aij5v")
 sprite_frames = SubResource("SpriteFrames_ubrji")
-animation = &"look_right"
+animation = &"shadow_center"

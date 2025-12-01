@@ -7,6 +7,8 @@ func enter(_prev_state):
 	match player.facing_direction:
 		Vector2.LEFT, Vector2.RIGHT:
 			animation = "attack_side"
+		Vector2.UP:
+			animation = "attack_up"
 			
 	player.frames.play(animation)
 	_attack_process()

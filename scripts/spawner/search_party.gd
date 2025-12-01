@@ -31,6 +31,8 @@ func _ready() -> void:
 		var packed := load(entity_path) as PackedScene
 		ally_entities.append(packed)
 	
+	Bus.connect("on_enemy_death", _on_enemy_death)
+	Bus.connect("on_ally_death", _on_ally_death)
 	call_deferred("_attempt_spawn")
 	call_deferred("_spawn_captain")
 

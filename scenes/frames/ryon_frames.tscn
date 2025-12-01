@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://d1k22io5wa57j"]
+[gd_scene load_steps=24 format=3 uid="uid://d1k22io5wa57j"]
 
 [ext_resource type="Texture2D" uid="uid://lm4vxebojla7" path="res://assets/sprites/ryonwalkcycle.png" id="1_j707f"]
 [ext_resource type="Texture2D" uid="uid://d4c4t6ddinxl1" path="res://assets/sprites/ryonmore_throw.png" id="2_xjvsu"]
 [ext_resource type="Texture2D" uid="uid://c5syih7vpu22t" path="res://assets/sprites/ryonsidethrow.png" id="3_dg03j"]
+[ext_resource type="Texture2D" uid="uid://t5w47ww6vfi" path="res://assets/sprites/ryonupthrow.png" id="3_pnc03"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_70s11"]
 atlas = ExtResource("2_xjvsu")
@@ -35,6 +36,22 @@ region = Rect2(80, 0, 40, 23)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8gbvs"]
 atlas = ExtResource("3_dg03j")
 region = Rect2(120, 0, 40, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnxjo"]
+atlas = ExtResource("3_pnc03")
+region = Rect2(0, 0, 24, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_car78"]
+atlas = ExtResource("3_pnc03")
+region = Rect2(24, 0, 24, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uk3a"]
+atlas = ExtResource("3_pnc03")
+region = Rect2(48, 0, 24, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fr1ki"]
+atlas = ExtResource("3_pnc03")
+region = Rect2(72, 0, 24, 39)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8vi71"]
 atlas = ExtResource("1_j707f")
@@ -98,6 +115,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pnxjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_car78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uk3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fr1ki")
+}],
+"loop": false,
+"name": &"attack_up",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_8vi71")
 }],
 "loop": true,
@@ -140,4 +174,4 @@ animations = [{
 
 [node name="Frames" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_wxllt")
-animation = &"attack_down"
+animation = &"attack_up"

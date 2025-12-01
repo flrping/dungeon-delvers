@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cktryo5wbcouh"]
+[gd_scene load_steps=8 format=3 uid="uid://cktryo5wbcouh"]
 
 [ext_resource type="LabelSettings" uid="uid://dmsbms5e6jsi" path="res://scenes/fonts/pixel_font_settings.tres" id="1_jg20v"]
 [ext_resource type="PackedScene" uid="uid://c62mcfmsi7tf6" path="res://scenes/ui/progress_bar.tscn" id="1_s4ogp"]
@@ -7,17 +7,15 @@
 [ext_resource type="FontFile" uid="uid://bvacfqo8p773s" path="res://assets/fonts/Alkhemikal.ttf" id="5_1afs1"]
 
 [sub_resource type="Theme" id="Theme_g7v3g"]
+default_font = ExtResource("5_1afs1")
+default_font_size = 24
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1afs1"]
 bg_color = Color(0.011999681, 0.0006931878, 0.0008313939, 0.34509805)
-expand_margin_left = 325.0
+expand_margin_left = 65.0
 expand_margin_top = 20.0
 expand_margin_right = 405.0
-expand_margin_bottom = 15.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_rtpfr"]
-font = ExtResource("5_1afs1")
-font_size = 24
+expand_margin_bottom = 20.0
 
 [node name="PlayerUI" type="CanvasLayer"]
 
@@ -86,16 +84,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_jg20v")
 
-[node name="Objective Label" type="Label" parent="."]
-visible = false
-offset_left = 192.0
-offset_top = 128.0
-offset_right = 960.0
+[node name="Objective Label" type="RichTextLabel" parent="."]
+offset_left = -72.0
+offset_top = 88.0
+offset_right = 1192.0
 offset_bottom = 192.0
 theme = SubResource("Theme_g7v3g")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1afs1")
+bbcode_enabled = true
 text = "Test Alert"
-label_settings = SubResource("LabelSettings_rtpfr")
+fit_content = true
+scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 3

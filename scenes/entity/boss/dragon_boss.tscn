@@ -1,27 +1,43 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgovkp2p1jhln"]
+[gd_scene load_steps=8 format=3 uid="uid://cgovkp2p1jhln"]
 
-[ext_resource type="Texture2D" uid="uid://dqr2jlegtukka" path="res://assets/sprites/Boss.png" id="1_b4jxy"]
+[ext_resource type="Texture2D" uid="uid://d11emcyiw6ugg" path="res://assets/sprites/Boss_body.png" id="1_s6ssx"]
+[ext_resource type="Script" uid="uid://bjul57wjwttct" path="res://scripts/entity/dragon_boss.gd" id="1_t4236"]
 [ext_resource type="PackedScene" uid="uid://b4ifjggqdh5wm" path="res://scenes/frames/boss_left_arm_frames.tscn" id="2_ehk6x"]
 [ext_resource type="PackedScene" uid="uid://c6ftpnht8pwbn" path="res://scenes/frames/boss_right_arm_frames.tscn" id="3_s6ssx"]
 [ext_resource type="PackedScene" uid="uid://dtig86uh7rluv" path="res://scenes/frames/boss_head_frames.tscn" id="4_s6ssx"]
+[ext_resource type="FontFile" uid="uid://bvacfqo8p773s" path="res://assets/fonts/Alkhemikal.ttf" id="5_ujerg"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d68rd"]
-atlas = ExtResource("1_b4jxy")
-region = Rect2(416.24597, 0, 293.27808, 145)
+[sub_resource type="Theme" id="Theme_ujerg"]
+default_font = ExtResource("5_ujerg")
 
 [node name="DragonBoss" type="Node2D"]
 scale = Vector2(2.5, 2.5)
+script = ExtResource("1_t4236")
 
 [node name="Body" type="Sprite2D" parent="."]
-position = Vector2(13, -33)
-texture = SubResource("AtlasTexture_d68rd")
+position = Vector2(19.2, -2.4)
+texture = ExtResource("1_s6ssx")
 
 [node name="BossLeftArmFrames" parent="." instance=ExtResource("2_ehk6x")]
+visible = false
 position = Vector2(-60, 47)
 
 [node name="BossRightArmFrames" parent="." instance=ExtResource("3_s6ssx")]
+visible = false
 position = Vector2(54.5, 48.5)
 
 [node name="BossHeadFrames" parent="." instance=ExtResource("4_s6ssx")]
-position = Vector2(-2.4, -50)
-animation = &"look_center"
+position = Vector2(-15.999999, -38)
+animation = &"shadow_left"
+
+[node name="Dialogue" type="RichTextLabel" parent="."]
+offset_left = -34.800003
+offset_top = 0.39999998
+offset_right = 105.599976
+offset_bottom = 40.4
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_ujerg")
+bbcode_enabled = true
+text = " "
+fit_content = true
+horizontal_alignment = 1

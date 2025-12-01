@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnilol7fwa0bj"]
+
+[ext_resource type="Texture2D" uid="uid://dj0n51obn5wiw" path="res://assets/sprites/randomjunkDD.png" id="1_v5osf"]
+[ext_resource type="Texture2D" uid="uid://cvo3efop08d5q" path="res://assets/sprites/litsconce.png" id="2_slmmr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_slmmr"]
+texture = ExtResource("1_v5osf")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bdgnb"]
+texture = ExtResource("2_slmmr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_bdgnb"]
+sources/0 = SubResource("TileSetAtlasSource_slmmr")
+sources/1 = SubResource("TileSetAtlasSource_bdgnb")
+
+[node name="JunkTiles" type="TileMapLayer"]
+tile_set = SubResource("TileSet_bdgnb")

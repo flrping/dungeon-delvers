@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0b0res3na8ww"]
+
+[ext_resource type="Script" uid="uid://bbf4xwx7bge37" path="res://scripts/entity/projectiles/ryon_ally_spell.gd" id="1_ewm4g"]
+[ext_resource type="PackedScene" uid="uid://dic5jfb43yi6g" path="res://scenes/frames/fireball_frames.tscn" id="2_ewm4g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj7wc"]
+size = Vector2(8, 28.5)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mj7wc"]
+radius = 5.5
+height = 40.0
+
+[node name="Fireball" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_ewm4g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.75, -7.649493e-08)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_mj7wc")
+disabled = true
+
+[node name="Frames" parent="." instance=ExtResource("2_ewm4g")]
+position = Vector2(-0.5, 0)
+rotation = 4.712389
+scale = Vector2(0.31428573, 0.32394367)
+
+[node name="Hitbox" type="Area2D" parent="." groups=["EnemyDamageSource"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_mj7wc")

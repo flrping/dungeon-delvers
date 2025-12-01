@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://3lnn4hgr7xw2"]
+[gd_scene load_steps=19 format=3 uid="uid://3lnn4hgr7xw2"]
 
 [ext_resource type="Texture2D" uid="uid://bm0y8b8csly0f" path="res://assets/sprites/characterselect.png" id="1_0frw4"]
 [ext_resource type="Script" uid="uid://da13t2fbd8qxo" path="res://scripts/menu/character_select.gd" id="1_nbeft"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d0ja63vadwl6g" path="res://assets/img/Untitled_Artwork_M.png" id="3_i4i37"]
 [ext_resource type="Texture2D" uid="uid://b2ul425dsah11" path="res://assets/img/Untitled_Artwork_MR.png" id="4_m7y3p"]
 [ext_resource type="FontFile" uid="uid://bvacfqo8p773s" path="res://assets/fonts/Alkhemikal.ttf" id="5_2mxrx"]
+[ext_resource type="Texture2D" uid="uid://bbmtxugvq1ywv" path="res://assets/img/Untitled_Artwork_J.png" id="6_m7y3p"]
 [ext_resource type="AudioStream" uid="uid://dn70lqpuia6hm" path="res://assets/tracks/xia.field - Char_Meredith.mp3" id="7_i4i37"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aofas"]
@@ -180,6 +181,17 @@ offset_top = -171.0
 offset_right = 1448.0
 offset_bottom = 702.0
 texture = ExtResource("4_m7y3p")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="JadeSplash" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 578.0
+offset_top = -140.0
+offset_right = 1443.0
+offset_bottom = 733.0
+texture = ExtResource("6_m7y3p")
 expand_mode = 1
 stretch_mode = 4
 

@@ -14,7 +14,7 @@ extends Control
 @onready var marjorie_theme = preload("res://assets/tracks/xia.field - Char_Marjorie.mp3")
 @onready var jade: TextureRect = $Jade
 @onready var jade_select: TextureRect = $JadeSelect
-#@onready var jade_splash: TextureRect = $JadeSplash
+@onready var jade_splash: TextureRect = $JadeSplash
 @onready var jade_theme = preload("res://assets/tracks/xia.field - Char_Jade.mp3")
 
 @onready var description: Label = $Descriptions
@@ -63,6 +63,7 @@ func _set_details():
 		meredith_splash.visible = true
 		ryon_splash.visible = false
 		marjorie_splash.visible = false
+		jade_splash.visible = false
 		audio.stream = meredith_theme
 	elif index == 1:
 		meredith_select.visible = false
@@ -73,6 +74,7 @@ func _set_details():
 		meredith_splash.visible = false
 		ryon_splash.visible = true
 		marjorie_splash.visible = false
+		jade_splash.visible = false
 		audio.stream = ryon_theme
 	elif index == 2:
 		meredith_select.visible = false
@@ -83,6 +85,7 @@ func _set_details():
 		meredith_splash.visible = false
 		ryon_splash.visible = false
 		marjorie_splash.visible = true
+		jade_splash.visible = false
 		audio.stream = marjorie_theme
 	else:
 		meredith_select.visible = false
@@ -93,6 +96,7 @@ func _set_details():
 		meredith_splash.visible = false
 		ryon_splash.visible = false
 		marjorie_splash.visible = false
+		jade_splash.visible = true
 		audio.stream = jade_theme
 	
 	audio.play()

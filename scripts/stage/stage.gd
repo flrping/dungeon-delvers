@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var label_settings: LabelSettings = load("res://scenes/fonts/pixel_font_settings.tres")
 @onready var spawn_point: Node2D = $Spawn
 @onready var meredith_player: PackedScene = load("res://scenes/player/meredith_player.tscn")
 @onready var ryon_player: PackedScene = load("res://scenes/player/ryon_player.tscn")
@@ -9,7 +10,7 @@ func _ready() -> void:
 	
 	var player_instance: Node2D
 	if Global.player_name.to_lower() == "meredith":
-		player_instance= meredith_player.instantiate()
+		player_instance = meredith_player.instantiate()
 		player_instance.position = spawn_point.global_position
 		get_tree().current_scene.add_child(player_instance)
 	else:
@@ -19,6 +20,8 @@ func _ready() -> void:
 		
 	Global.player = player_instance
 	Global.player_ui = Global.player.get_node("PlayerUI")
+	
+	label_settings.font_color = Color.html(Global.player_color)
 	
 	Bus.connect("on_new_objective", _on_objective_start)
 	Bus.connect("on_objective_complete", _on_objective_complete)

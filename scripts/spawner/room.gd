@@ -54,7 +54,7 @@ func _on_ally_death(entity: Entity, _source: Variant) -> void:
 	if not in_control:
 		return
 		
-	if not tracked_entites.has(entity)  and not captain == entity:
+	if not tracked_entites.has(entity) and not captain == entity:
 		return
 		
 	tracked_entites.erase(entity)
