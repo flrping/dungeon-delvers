@@ -313,7 +313,7 @@ position = Vector2(1773, -4754)
 position = Vector2(1904.7598, -5293.0923)
 
 [node name="Spawn" type="Node2D" parent="."]
-position = Vector2(1900, -8174)
+position = Vector2(163, 234)
 
 [node name="Stag1" type="Sprite2D" parent="."]
 position = Vector2(1712, -8689)

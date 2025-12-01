@@ -51,7 +51,7 @@ func _input(event: InputEvent) -> void:
 				Global.player_name = "Jade"
 				Global.player_color = "1bbe42"
 			
-		get_tree().change_scene_to_file("res://scenes/stage/stage.tscn")
+		get_tree().change_scene_to_file("res://scenes/menu/description.tscn")
 	
 func _set_details():
 	if index == 0:
