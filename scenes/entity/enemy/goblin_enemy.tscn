@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://0quth5vkehes" path="res://scripts/entity/enemy/goblin_enemy.gd" id="1_xa3nf"]
 [ext_resource type="PackedScene" uid="uid://xrfu2eycnk4p" path="res://scenes/frames/goblin_frames.tscn" id="2_xa3nf"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srybl"]
-radius = 3.5
-height = 9.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_xa3nf"]
+radius = 7.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l1e1h"]
 
@@ -18,11 +17,12 @@ radius = 140.70004
 scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 11
+platform_floor_layers = 4278190080
 script = ExtResource("1_xa3nf")
 damage_source = "AllyDamageSource"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_srybl")
+shape = SubResource("CircleShape2D_xa3nf")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 4

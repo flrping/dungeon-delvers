@@ -3,6 +3,7 @@ extends PlayerState
 class_name RyonAttackState
 
 func enter(_prev_state):
+	player.velocity = player.velocity * 0.25
 	var animation := "attack_down"
 	match player.facing_direction:
 		Vector2.LEFT, Vector2.RIGHT:

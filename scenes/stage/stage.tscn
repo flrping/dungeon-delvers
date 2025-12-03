@@ -368,15 +368,18 @@ position = Vector2(2203, -7964)
 
 [node name="Redcarpet" type="Sprite2D" parent="."]
 position = Vector2(1912, -7565)
+scale = Vector2(2, 2)
 texture = ExtResource("17_lv745")
 
 [node name="Redcarpet2" type="Sprite2D" parent="."]
-position = Vector2(1908, -7867)
+position = Vector2(1897, -7939)
+scale = Vector2(2, 2)
 texture = ExtResource("17_lv745")
 flip_h = true
 
 [node name="Redcarpet3" type="Sprite2D" parent="."]
-position = Vector2(1908, -8017)
+position = Vector2(1896, -8225)
+scale = Vector2(2, 2)
 texture = ExtResource("17_lv745")
 flip_h = true
 flip_v = true

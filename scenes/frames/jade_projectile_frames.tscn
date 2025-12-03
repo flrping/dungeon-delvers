@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6m3bhw7qeqpf"]
+
+[ext_resource type="Texture2D" uid="uid://drdy47qhbgxxv" path="res://assets/sprites/image.png" id="1_0wy7a"]
+[ext_resource type="Texture2D" uid="uid://ca5os1ixfiag2" path="res://assets/sprites/jadespike.png" id="2_rc14i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkrsd"]
+atlas = ExtResource("2_rc14i")
+region = Rect2(0, 0, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps2bq"]
+atlas = ExtResource("2_rc14i")
+region = Rect2(16, 0, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddapi"]
+atlas = ExtResource("2_rc14i")
+region = Rect2(32, 0, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtnnn"]
+atlas = ExtResource("2_rc14i")
+region = Rect2(48, 0, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x6ap"]
+atlas = ExtResource("2_rc14i")
+region = Rect2(64, 0, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2b13"]
+atlas = ExtResource("2_rc14i")
+region = Rect2(80, 0, 16, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kp3ve"]
+atlas = ExtResource("2_rc14i")
+region = Rect2(96, 0, 16, 15)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrhpo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0wy7a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkrsd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps2bq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddapi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtnnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x6ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2b13")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kp3ve")
+}],
+"loop": false,
+"name": &"rooted",
+"speed": 10.0
+}]
+
+[node name="Frames" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_xrhpo")

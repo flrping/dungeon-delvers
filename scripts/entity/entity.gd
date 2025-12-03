@@ -6,12 +6,14 @@ class_name Entity
 @export var current_health: float = 20.0
 @export var i_frame: float = 200.0 # in ms
 @export var i_frame_timer: float = 0.0
-@export var min_idle_time: float = 3.0
-@export var max_idle_time: float = 10.0
+@export var min_idle_time: float = 15.0
+@export var max_idle_time: float = 30.0
 @export var attack_time: float = 3.0
 @export var damage_source: String = "EnemyDamageSource"
 @export var job: String = "none"
 @export var speed: float = 150.0
+@export var knockback_time = 0.05
+@export var knockback_timer = 0.0
 
 @onready var navigation := $NavigationAgent2D
 @onready var enemy_hit := preload("res://assets/sfx/HitEnemy.wav")
@@ -67,18 +69,18 @@ func _check_damage_sources(_delta: Variant, hurtbox: Area2D) -> void:
 		return
 	
 	for source in hurtbox.get_overlapping_areas():
-		if source.is_in_group(damage_source) and not source.is_in_group("Player"):
-			var knockback_dir: Vector2 = (global_position - source.global_position).normalized()
-			_take_damage(source, 1.0, knockback_dir)
+		var knockback_dir: Vector2 = (global_position - source.global_position).normalized()
+		if source.is_in_group(damage_source) and not source.is_in_group("Player") or source.is_in_group("NoKB"):
+			_take_damage(source, 1.0, Vector2.ZERO)
 			i_frame_timer = i_frame / 1000.0
 		elif source.is_in_group(damage_source) and source.is_in_group("Player"):
-			var knockback_dir: Vector2 = (global_position - source.global_position).normalized()
 			_take_damage(source, 10.0, knockback_dir)
 			i_frame_timer = i_frame / 1000.0
 			
 # Handles taking damage and death.
 func _take_damage(source: Variant, amount: float, knockback_dir: Vector2) -> void:
-	velocity = knockback_dir * 250.0
+	knockback_timer = knockback_time
+	velocity = knockback_dir * 800.0
 	current_health -= amount
 	
 	SoundBus._queue_sound("enemy_hit", enemy_hit, position)

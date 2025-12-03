@@ -2,13 +2,7 @@ extends EntityState
 
 class_name EntityHuntState
 
-func enter(prev_state: EntityState) -> void:
-	pass
-	
-func exit(next_state: EntityState) -> void:
-	pass
-	
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	if entity.target == null:
 		entity.idle_timer = entity.idle_time
 		entity._set_state("idle")
@@ -19,7 +13,7 @@ func physics_update(delta: float) -> void:
 	var dist: float = entity.global_position.distance_to(target_pos)
 	
 	if dist <= entity.ATTACK_DISTANCE:
-		entity.velocity = Vector2.ZERO
+		entity.navigation.target_position = entity.global_position
 	else:
 		entity.navigation.target_position = target_pos
 		
@@ -38,5 +32,3 @@ func physics_update(delta: float) -> void:
 			entity.facing_direction = Vector2.UP
 		else:
 			entity.facing_direction = Vector2.DOWN
-	
-	entity.move_and_slide()

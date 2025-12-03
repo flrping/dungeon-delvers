@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://brgvbq52hc48r"]
+
+[ext_resource type="Texture2D" uid="uid://bdpqt57jwpqbs" path="res://assets/sprites/Marjorie.png" id="1_00m4n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibjky"]
+atlas = ExtResource("1_00m4n")
+region = Rect2(276, 0, 32, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16f40"]
+atlas = ExtResource("1_00m4n")
+region = Rect2(308, 0, 32, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osw8r"]
+atlas = ExtResource("1_00m4n")
+region = Rect2(248, 0, 14, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l17lu"]
+atlas = ExtResource("1_00m4n")
+region = Rect2(262, 0, 14, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrhpo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibjky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16f40")
+}],
+"loop": true,
+"name": &"beam_h",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osw8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l17lu")
+}],
+"loop": true,
+"name": &"beam_v",
+"speed": 5.0
+}]
+
+[node name="Frames" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_xrhpo")
+animation = &"beam_h"

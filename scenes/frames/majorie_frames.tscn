@@ -67,6 +67,14 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vimg1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vimg1")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_woldh")
@@ -83,7 +91,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_odt1a")
 }],
 "loop": true,
-"name": &"walk_side",
+"name": &"walk_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -100,4 +108,4 @@ animations = [{
 
 [node name="Frames" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_nm32q")
-animation = &"attack_down"
+animation = &"idle"

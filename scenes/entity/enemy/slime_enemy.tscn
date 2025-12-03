@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://57nc3bxleo8e" path="res://scripts/entity/enemy/slime_enemy.gd" id="1_vb546"]
 [ext_resource type="PackedScene" uid="uid://uh1e3qk4vphu" path="res://scenes/frames/slime_frames.tscn" id="2_o2k3m"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_srybl"]
-radius = 3.5
-height = 9.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_xa3nf"]
+radius = 7.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7pg58"]
 size = Vector2(16, 16)
@@ -20,12 +19,13 @@ radius = 120.0
 scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 11
+platform_floor_layers = 4278190080
 script = ExtResource("1_vb546")
 damage_source = "AllyDamageSource"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2.5)
-shape = SubResource("CapsuleShape2D_srybl")
+shape = SubResource("CircleShape2D_xa3nf")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 4

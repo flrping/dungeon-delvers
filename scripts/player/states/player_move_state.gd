@@ -29,7 +29,5 @@ func physics_update(_delta):
 		player.frames.play("walk_up")
 		player.facing_direction = Vector2.UP
 	
-	player.move_and_slide()
-	
 	if Input.is_action_just_pressed("Light_Attack"):
 		player._set_state("attack")

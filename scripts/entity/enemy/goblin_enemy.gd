@@ -52,11 +52,17 @@ func _physics_process(delta: float) -> void:
 			frames.play("walk_side")
 			frames.flip_h = false
 	
-	_check_for_targets()
-	_apply_i_frames(delta)
+	if knockback_timer <= 0.0:
+		_check_for_targets()
+		_apply_i_frames(delta)
+	
+		state.physics_update(delta)
+	else:
+		knockback_timer -= delta
+		
 	_check_damage_sources(delta, hurtbox)
 	
-	state.physics_update(delta)
+	move_and_slide()
 
 func _check_for_targets() -> void:
 	var found: bool = false

@@ -85,6 +85,7 @@ grow_vertical = 2
 script = ExtResource("3_jg20v")
 
 [node name="Objective Label" type="RichTextLabel" parent="."]
+visible = false
 offset_left = -72.0
 offset_top = 88.0
 offset_right = 1192.0

@@ -5,7 +5,9 @@ class_name EntityWanderState
 func enter(prev_state: EntityState) -> void:
 	entity._set_new_random_target()
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
+	entity.velocity = Vector2.ZERO
+	
 	if entity.navigation.is_navigation_finished():
 		entity.idle_timer = 0.0
 		entity._set_state("idle")
@@ -31,5 +33,3 @@ func physics_update(delta: float) -> void:
 			entity.facing_direction = Vector2.UP
 		else:
 			entity.facing_direction = Vector2.DOWN
-	
-	entity.move_and_slide()

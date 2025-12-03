@@ -18,6 +18,7 @@ radius = 62.03225
 scale = Vector2(2, 2)
 collision_layer = 8
 collision_mask = 7
+platform_floor_layers = 4278190080
 script = ExtResource("1_he3f6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

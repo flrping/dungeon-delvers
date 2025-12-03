@@ -4,6 +4,8 @@ extends Node2D
 @onready var spawn_point: Node2D = $Spawn
 @onready var meredith_player: PackedScene = load("res://scenes/player/meredith_player.tscn")
 @onready var ryon_player: PackedScene = load("res://scenes/player/ryon_player.tscn")
+@onready var marjorie_player: PackedScene = load("res://scenes/player/marjorie_player.tscn")
+@onready var jade_player: PackedScene = load("res://scenes/player/jade_player.tscn")
 
 func _ready() -> void:
 	Bus.emit_signal("on_game_start")
@@ -13,8 +15,20 @@ func _ready() -> void:
 		player_instance = meredith_player.instantiate()
 		player_instance.position = spawn_point.global_position
 		get_tree().current_scene.add_child(player_instance)
-	else:
+	elif Global.player_name.to_lower() == "marjorie":
+		player_instance = marjorie_player.instantiate()
+		player_instance.position = spawn_point.global_position
+		get_tree().current_scene.add_child(player_instance)
+	elif Global.player_name.to_lower() == "ryon":
 		player_instance = ryon_player.instantiate()
+		player_instance.position = spawn_point.global_position
+		get_tree().current_scene.add_child(player_instance)
+	elif Global.player_name.to_lower() == "jade":
+		player_instance = jade_player.instantiate()
+		player_instance.position = spawn_point.global_position
+		get_tree().current_scene.add_child(player_instance)
+	else:
+		player_instance = meredith_player.instantiate()
 		player_instance.position = spawn_point.global_position
 		get_tree().current_scene.add_child(player_instance)
 		

@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dh6kmcauga151"]
+
+[ext_resource type="Script" uid="uid://bbf4xwx7bge37" path="res://scripts/entity/projectiles/ryon_ally_spell.gd" id="1_8mgb2"]
+[ext_resource type="Texture2D" uid="uid://bdpqt57jwpqbs" path="res://assets/sprites/Marjorie.png" id="2_8mgb2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7mch"]
+atlas = ExtResource("2_8mgb2")
+region = Rect2(346, 6, 14, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj7wc"]
+size = Vector2(8, 15)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mj7wc"]
+radius = 5.5
+height = 20.0
+
+[node name="BeamProjectile" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_8mgb2")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+rotation = 1.5707964
+texture = SubResource("AtlasTexture_s7mch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_mj7wc")
+disabled = true
+
+[node name="Hitbox" type="Area2D" parent="." groups=["AllyDamageSource", "Player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_mj7wc")

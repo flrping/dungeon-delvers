@@ -33,6 +33,7 @@ Enemy=""
 EnemyDamageSource=""
 AllyDamageSource=""
 Ally=""
+NoKB=""
 
 [input]
 

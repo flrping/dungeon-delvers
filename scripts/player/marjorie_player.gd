@@ -1,11 +1,11 @@
 extends Player
 
-class_name RyonPlayer
+class_name MarjoriePlayer
 
-@onready var trident = preload("res://scenes/entity/projectile/ryon_trident.tscn")
-
-var has_spawned = false
-var is_recovering = false
+@onready var attack_hitbox_up: Area2D  = $AttackUpHitbox
+@onready var attack_hitbox_down: Area2D  = $AttackDownHitbox
+@onready var attack_hitbox_left: Area2D  = $AttackLeftHitbox
+@onready var attack_hitbox_right: Area2D  = $AttackRightHitbox
 
 func _ready() -> void:
 	speed = 250.0
@@ -13,7 +13,7 @@ func _ready() -> void:
 	states = {
 		"idle": preload("res://scripts/player/states/player_idle_state.gd").new(),
 		"move": preload("res://scripts/player/states/player_move_state.gd").new(),
-		"attack": preload("res://scripts/player/states/ryon_attack_state.gd").new()
+		"attack": preload("res://scripts/player/states/marjorie_attack_state.gd").new()
 	}
 	
 	for _state in states.values():
@@ -25,7 +25,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not state:
 		return
-		
+
 	_apply_i_frames(delta)
 	_check_damage_sources(delta)
 	

@@ -30,3 +30,4 @@ func _process(delta: float) -> void:
 	_check_damage_sources(delta)
 	
 	state.physics_update(delta)
+	move_and_slide()

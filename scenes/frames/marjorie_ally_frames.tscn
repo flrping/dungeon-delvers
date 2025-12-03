@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://doiba7vmdw580"]
+
+[ext_resource type="Texture2D" uid="uid://dsnrhv4srpxny" path="res://assets/sprites/ryonally.png" id="1_dvla8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c388b"]
+atlas = ExtResource("1_dvla8")
+region = Rect2(102, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd5fw"]
+atlas = ExtResource("1_dvla8")
+region = Rect2(119, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tjse"]
+atlas = ExtResource("1_dvla8")
+region = Rect2(136, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_275k2"]
+atlas = ExtResource("1_dvla8")
+region = Rect2(0, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grqva"]
+atlas = ExtResource("1_dvla8")
+region = Rect2(17, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jj6h"]
+atlas = ExtResource("1_dvla8")
+region = Rect2(34, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s787"]
+atlas = ExtResource("1_dvla8")
+region = Rect2(51, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h4th"]
+atlas = ExtResource("1_dvla8")
+region = Rect2(68, 0, 17, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0yxp"]
+atlas = ExtResource("1_dvla8")
+region = Rect2(85, 0, 17, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nm32q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c388b")
+}],
+"loop": true,
+"name": &"attack_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd5fw")
+}],
+"loop": true,
+"name": &"attack_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tjse")
+}],
+"loop": true,
+"name": &"attack_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_275k2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grqva")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jj6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s787")
+}],
+"loop": true,
+"name": &"walk_side",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h4th")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0yxp")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[node name="Frames" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_nm32q")
+animation = &"attack_up"
