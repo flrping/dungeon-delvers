@@ -1,6 +1,6 @@
 extends PlayerState
 
-class_name MeredithAttackState
+class_name MeredithLightAttackState
 
 @onready var swing: AudioStreamPlayer = player.get_node("SwordSwing")
 

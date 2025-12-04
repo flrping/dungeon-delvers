@@ -154,9 +154,11 @@ in_control = true
 
 [node name="Central Intersection East" parent="." instance=ExtResource("2_3kwj0")]
 position = Vector2(544, -1504)
+entity_limit = 15
 
 [node name="Central Intersection West" parent="." instance=ExtResource("2_3kwj0")]
 position = Vector2(-1055, -1568)
+entity_limit = 15
 
 [node name="Cove" parent="." instance=ExtResource("6_pf3bu")]
 position = Vector2(-576, -256)
@@ -281,33 +283,44 @@ in_control = true
 
 [node name="Party6" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(572, -1192)
+entity_limit = 8
 
 [node name="Party7" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(-993, -1183)
+entity_limit = 8
 
 [node name="Party8" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(-360, -2509)
+entity_limit = 8
 
 [node name="Party9" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(172, -2423)
+entity_limit = 8
 
 [node name="Party10" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(-1819, -3200)
 
 [node name="Party11" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(-357, -4800)
+entity_limit = 8
 
 [node name="Party12" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(-22, -4440)
+entity_limit = 8
 
 [node name="Party13" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(346, -4787)
+entity_limit = 8
 
 [node name="Party14" parent="." instance=ExtResource("12_lrsvv")]
 position = Vector2(1768, -5029)
+entity_limit = 8
+has_captain = true
 
 [node name="Party15" parent="." instance=ExtResource("12_lrsvv")]
-position = Vector2(1773, -4754)
+position = Vector2(1763, -4709)
+entity_limit = 8
+has_captain = true
 
 [node name="Dragon Boss Node" type="Node2D" parent="."]
 position = Vector2(1904.7598, -5293.0923)

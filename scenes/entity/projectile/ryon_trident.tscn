@@ -12,6 +12,7 @@ height = 40.0
 
 [node name="RyonTrident" type="CharacterBody2D"]
 scale = Vector2(2.5, 2.5)
+platform_floor_layers = 4278190080
 script = ExtResource("1_mj7wc")
 
 [node name="Frames" parent="." instance=ExtResource("2_li5kv")]

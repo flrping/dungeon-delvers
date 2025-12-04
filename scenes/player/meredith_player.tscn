@@ -81,7 +81,7 @@ shape = SubResource("RectangleShape2D_1f8ad")
 disabled = true
 
 [node name="Frames" parent="." instance=ExtResource("2_gdab3")]
-animation = &"idle"
+animation = &"walk_right"
 
 [node name="PlayerUI" parent="." instance=ExtResource("3_l8cg3")]
 

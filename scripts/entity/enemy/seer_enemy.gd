@@ -4,7 +4,7 @@ class_name SeerEnemy
 
 const ATTACK_DISTANCE := 200.0
 
-@onready var spell := load("res://scenes/entity/projectile/seer_spell.tscn")
+@onready var spell := preload("res://scenes/entity/projectile/seer_spell.tscn")
 @onready var frames: AnimatedSprite2D = $Frames
 @onready var detection: Area2D = $Detection
 @onready var hurtbox: Area2D = $Hurtbox

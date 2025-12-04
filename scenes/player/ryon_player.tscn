@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bh8dlmse52kkc"]
+[gd_scene load_steps=12 format=3 uid="uid://bh8dlmse52kkc"]
 
 [ext_resource type="Script" uid="uid://dtc0u3oeqed0i" path="res://scripts/player/ryon_player.gd" id="1_4akyg"]
 [ext_resource type="PackedScene" uid="uid://d1k22io5wa57j" path="res://scenes/frames/ryon_frames.tscn" id="2_4akyg"]
@@ -11,6 +11,18 @@ radius = 6.0
 height = 20.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gdab3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iapgb"]
+size = Vector2(25.5, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvv5f"]
+size = Vector2(25, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ch1vw"]
+size = Vector2(20, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_amg74"]
+size = Vector2(20, 25.5)
 
 [node name="RyonPlayer" type="CharacterBody2D" groups=["Ally", "Player"]]
 scale = Vector2(2.5, 2.5)
@@ -30,6 +42,46 @@ collision_mask = 15
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CapsuleShape2D_gdab3")
 debug_color = Color(0.85882354, 0.27058825, 0.62352943, 0.41960785)
+
+[node name="AttackUpHitbox" type="Area2D" parent="." groups=["AllyDamageSource", "Player"]]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackUpHitbox"]
+position = Vector2(0, -20)
+shape = SubResource("RectangleShape2D_iapgb")
+disabled = true
+
+[node name="AttackDownHitbox" type="Area2D" parent="." groups=["AllyDamageSource", "Player"]]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackDownHitbox"]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_qvv5f")
+disabled = true
+
+[node name="AttackRightHitbox" type="Area2D" parent="." groups=["AllyDamageSource", "Player"]]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRightHitbox"]
+position = Vector2(20, 0)
+shape = SubResource("RectangleShape2D_ch1vw")
+disabled = true
+
+[node name="AttackLeftHitbox" type="Area2D" parent="." groups=["AllyDamageSource", "Player"]]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 2
+collision_mask = 15
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackLeftHitbox"]
+position = Vector2(-20, 0)
+shape = SubResource("RectangleShape2D_amg74")
+disabled = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

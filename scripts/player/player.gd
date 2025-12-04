@@ -13,7 +13,7 @@ class_name Player
 
 var state: PlayerState
 var states: Dictionary[Variant, Variant] = {}
-var facing_direction: Vector2
+var facing_direction: Vector2 = Vector2.ZERO
 
 # Sets states.
 func _set_state(state_name) -> void:

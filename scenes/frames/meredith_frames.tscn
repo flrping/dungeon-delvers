@@ -1,9 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://7cg7trfrr6n3"]
+[gd_scene load_steps=29 format=3 uid="uid://7cg7trfrr6n3"]
 
 [ext_resource type="Texture2D" uid="uid://cwys8v6eqjdyp" path="res://assets/sprites/meredithsideattack.png" id="1_4nej0"]
 [ext_resource type="Texture2D" uid="uid://crdv2jo4u6fp2" path="res://assets/sprites/meredithwalk.png" id="1_6dwxd"]
 [ext_resource type="Texture2D" uid="uid://lmt1ck64n5fv" path="res://assets/sprites/meredithfrontattack.png" id="1_v30b7"]
 [ext_resource type="Texture2D" uid="uid://btrna8cjkvu7k" path="res://assets/sprites/meredithbackattack.png" id="3_37gdd"]
+[ext_resource type="Texture2D" uid="uid://qrwihj4et6ur" path="res://assets/sprites/meredith_w_dash.png" id="4_so5vt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yusbo"]
 atlas = ExtResource("1_v30b7")
@@ -44,6 +45,18 @@ region = Rect2(69, 0, 69, 59)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sf3iq"]
 atlas = ExtResource("3_37gdd")
 region = Rect2(138, 0, 69, 59)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r4dgy"]
+atlas = ExtResource("4_so5vt")
+region = Rect2(306, 0, 17, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmwmp"]
+atlas = ExtResource("4_so5vt")
+region = Rect2(264, 0, 43, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m0ut"]
+atlas = ExtResource("4_so5vt")
+region = Rect2(370, 0, 18, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2vkkp"]
 atlas = ExtResource("1_6dwxd")
@@ -130,6 +143,30 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_r4dgy")
+}],
+"loop": false,
+"name": &"heavy_attack_down",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmwmp")
+}],
+"loop": false,
+"name": &"heavy_attack_side",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m0ut")
+}],
+"loop": false,
+"name": &"heavy_attack_up",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_2vkkp")
 }],
 "loop": false,
@@ -183,4 +220,4 @@ animations = [{
 
 [node name="Frames" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_wxllt")
-animation = &"attack_side"
+animation = &"heavy_attack_side"

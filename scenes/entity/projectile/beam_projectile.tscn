@@ -16,6 +16,7 @@ height = 20.0
 
 [node name="BeamProjectile" type="CharacterBody2D"]
 scale = Vector2(2, 2)
+platform_floor_layers = 4278190080
 script = ExtResource("1_8mgb2")
 
 [node name="Sprite" type="Sprite2D" parent="."]

@@ -12,6 +12,7 @@ height = 40.0
 
 [node name="RyonAllySpell" type="CharacterBody2D"]
 scale = Vector2(2, 2)
+platform_floor_layers = 4278190080
 script = ExtResource("1_oe24u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
